@@ -1,0 +1,478 @@
+
+# String file for SuperDateTime plugin
+
+PLUGIN_SCREENSAVER_SUPERDATETIME
+	DE	Datum/Zeit Bildschirmschoner (SuperDateTime)
+	EN	SuperDateTime Screensaver
+	FR	Ecran de veille Date/Heure
+	ES	Salvapantalla SuperFechaHora
+	NL	SuperDatumTijd schermbeveiliger
+
+SETUP_GROUP_SUPERDATETIME
+	DE	Datum/Zeit Bildschirmschoner (SuperDateTime)
+	EN	SuperDateTime Screensaver
+	NL	SuperDatumTijd
+
+PLUGIN_SUPERDATETIME_PLAYER_SETTINGS
+	DE	SuperDateTime
+	EN	SuperDateTime
+	NL	SuperDatumTijd
+
+SETUP_GROUP_SUPERDATETIME_DESC
+	DE	Zeigt die lokale Zeit, Datum-, Wetter-, Sport- und Aktieninformationen an.<BR><B>ACHTUNG:</B> Die Einstellungen können sowohl auf Serverebene als auch für jede Squeezebox getrennt durchgeführt werden.
+	EN	Displays local time, date, weather, sports, and stocks information. This version uses weather.com data.<BR><B>NOTE:</B> Settings are done at both the server and individual player levels.
+	ES	Muestra información sobre hora local, fecha, clima, y deportes.
+	NL	Toont lokale tijd, datum, weer, sport en beursinformatie.<BR><B>NOTE:</B> Instellingen moet je zowel op server- als op spelerniveau instellen.
+
+PLUGIN_SCREENSAVER_SUPERDATETIME_CITY
+	DE	weather.com-Kennzeichen
+	EN	weather.com identifier
+	NL	weather.com identificatie
+
+PLUGIN_SCREENSAVER_SUPERDATETIME_CITY_DESC
+	DE	Ihre Postleitzahl oder ihr weather.com-Kennzeichen (z.B. Berlin = GMXX0007:1:GM oder Neuss = GMXX0090:1:GM)
+	EN	Your US Zip Code or Weather.com identifier (ie Chicago = 60614:4:US or London = UKXX0085:1:UK)
+	ES	Tu código Zip (en EEUU) o identificador en Weather.com (ie Buenos Aires = ARBA0009:1:AR)
+	NL	De Verinigde staten postcode of weather.com identificatie (bijvoorbeeld Haarlem = NLXX0010:1:NL)
+
+PLUGIN_SCREENSAVER_SUPERDATETIME_CHOOSE
+	DE	Postleitzahl oder weather.com-Kennzeichen:
+	EN	Zip code or identifier:
+	ES	Código Zip o identificador:
+	NL	Postcode of identificatie:
+
+PLUGIN_SCREENSAVER_SUPERDATETIME_WUNDER
+	DE	Underground-Wetter
+	EN	Weather Underground
+
+PLUGIN_SCREENSAVER_SUPERDATETIME_WUNDER_DESC
+	DE	Die Kennung einer Undergroud-Wetterstation (www.wunderground.com) deren Daten die aktuell von weather.com zur Verfügung gestellten Informationen überschreiben soll (z.B. Prenzlauer Berg, Berlin = IBERLIN15).<BR><B>Achtung: </B>Die Datenfelder von Wetterstationen können sich ändern. Wetterdaten von weather.com werden jedoch weiter zur Verfügung gestellt.
+	EN	You have the option to supply a wunderground.com weather station to receive readings from a particular weather station (ie Lincoln Park, Chicago = KILCHICA52).<BR><B>Note: </B>Data fields supplied by weather stations will vary.
+	NL	Je hebt de mogelijkheid om een wunderground.com weerstation op te geven om de gegevens van een weerstation te ontvangen (bijvoorbeeld AHAM voor Amsterdam).<BR><B>NB: </B>De informatie die geleverd wordt kan verschillen van weerstation tot weerstation.
+
+PLUGIN_SCREENSAVER_SUPERDATETIME_WUNDER_CHOOSE
+	DE	Kennzeichen der Underground-Wetterstation:
+	EN	Weather station identifier:
+	NL	Weerstation identificatie:
+
+PLUGIN_SCREENSAVER_SUPERDATETIME_WEATHERFORMAT1T
+	DE	Zeit-/Wetterformat Zeile 1
+	EN	Time/Weather Format Strings
+	NL	Tijd/weer formaat strings
+
+PLUGIN_SCREENSAVER_SUPERDATETIME_WEATHERFORMAT1T_DESC
+	DE	Sie können die Informationen, die in jeder Zeile angezeigt werden sollen, mittels Makrovariablen festlegen:<TABLE><TR><TH><B>Aktuelle Konditionen:</B></TH><TH><B>Informationszeitraum:</B></TH><TH><B>wunderground.com:</B></TH></TR><TR><TD>Zeit = %1 (nur Zeile 1 und 2)</TD><TD>Zeitraum (z.B. heute) = %y</TD><TD>Temperatur (°F) = %e (%r = gerundet)</TD></TR><TR><TD>Datum = %2%</TD><TD>Kurzvorhersage (z.B. sonnig) = %v</TD><TD>Temperatur %(°C) = %E (%R = gerundet)</TD></TR><TR><TD>Temperatur (°F) = %t</TD><TD>Höchst-/Tiefsttemperatur (°F) = %z</TD><TD>Luftfeuchtigkeit = %H</TD></TR><TR><TD>Temperatur (°C) %= %T</TD><TD>Höchchst-/Tiefsttemperatur (°C) %=%Z</TD><TD>Windgeschwindigkeit (mi/hr) = %j</TD></TR><TR><TD>Gefühlte Temperatur = (°F) = %f</TD><TD>Niederschlag = %x</TD><TD>Windgeschwindigkeit (km/hr) = %J</TD></TR><TR><TD>Gefühlte Temperatur = (°C) = %F</TD><TD>Durchschnittliche Höchst-/Tiefsttemperatur (°F) = %a</TD><TD>Windgeschwindigkeit (kt/hr) = %k</TD></TR><TR><TD>Luftfeuchtigkeit = %h</TD><TD>Durchschnittliche %Höchst-/Tiefsttemperatur (°C) = %A</TD><TD>Windgeschwindigkeit %(m/s) = %K</TD></TR><TR><TD>Windgeschwindigkeit (mi/hr) = %w</TD><TD>Aufgezeichnete Höchst-/Tiefsttemperatur (°F) = %c</TD><TD>Luftdruck (inHg) = %l</TD></TR><TR><TD>Windgeschwindigkeit (km/hr) = %W</TD><TD>Aufgezeichnete Höchst-/Tiefsttemperatur (°C) = %C</TD><TD>Luftdruck (hPa) = %L</TD></TR><TR><TD>Windgeschwindigkeit (kt/hr) = %q</TD><TD>Jahreshöchst-/Tiefsttemperatur = %g</TD><TD>Taupunkt %(°F) = %m</TD></TR><TR><TD>Windgeschwindigkeit (m/s) = %Q</TD><TD>Sonnenaufgang = %s</TD><TD>Taupunkt (°C) = %M</TD></TR><TR><TD>Luftdruck (inHg) = %p</TD><TD>Sonnenuntergang = %S</TD></TR><TR><TD>Luftdruck (hPa) = %P</TD></TR><TR><TD>Taupunkt (°F) = %d</TD></TR><TR><TD>Taupunkt (°C) = %D</TD></TR><TR><TD>Past 24-hr Precip = %b</TD></TR><TR><TD>Past 24-hr Snowfall = %B</TD></TR></TABLE><BR><B>Achtung:</B> Durch Drücken der hoch- und runter-Pfeiltasten auf der Fernbedienung schaltet man die Informationensanzeige zwischen vordefinierten und eigenen Modi um. Die Einstellungen für die Anzeige 2 treffen nur auf Squeezeboxen mit mehreren Anzeigen zu.<BR>
+	EN	You can customize the display of information shown on each line using macro variables:<TABLE><TR><TH><B>Current Condtions:</B></TH><TH><B>Period Information:</B></TH><TH><B>wunderground.com:</B></TH></TR><TR><TD>Time = %1 (Line 1&2 Only)</TD><TD>Period Covered (ie Today) = %y</TD><TD>Temperature (°F) = %e (%r - rounded)</TD></TR><TR><TD>Date = %2</TD><TD>Brief Forecast (ie Sunny) = %v</TD><TD>Temperature (°C) = %E (%R = rounded)</TD></TR><TR><TD>Temperature (°F) = %t</TD><TD>High/Low (°F) = %z</TD><TD>Humidity = %H</TD></TR><TR><TD>Temperature (°C) = %T</TD><TD>High/Low (°C) = %Z</TD><TD>Wind Speed (mi/hr) = %j</TD></TR><TR><TD>Feels-Like Temperature (°F) = %f</TD><TD>Precipitation = %x</TD><TD>Wind Speed (km/hr) = %J</TD></TR><TR><TD>Feels-Like Temperature (°C) = %F</TD><TD>Average High/Low (°F) = %a</TD><TD>Wind Speed (kt/hr) = %k</TD></TR><TR><TD>Humidity = %h</TD><TD>Average High/Low (°C) = %A</TD><TD>Wind Speed (m/s) = %K</TD></TR><TR><TD>Wind Speed (mi/hr) = %w</TD><TD>Record High/Low (°F) = %c</TD><TD>Barometric Pressure (inHg) = %l</TD></TR><TR><TD>Wind Speed (km/hr) = %W</TD><TD>Record High/Low (°C) = %C</TD><TD>Barometric Pressure (hPa) = %L</TD></TR><TR><TD>Wind Speed (kt/hr) = %q</TD><TD>Record High/Low Year = %g</TD><TD>Dew Point (°F) = %m</TD></TR><TR><TD>Wind Speed (m/s) = %Q</TD><TD>Sunrise = %s</TD><TD>Dew Point (°C) = %M</TD></TR><TR><TD>Barometric Pressure (inHg) = %p</TD><TD>Sunset = %S</TD></TR><TR><TD>Barometric Pressure (hPa) = %P</TD><TD>Moonrise = %n</TD></TR><TR><TD>Dew Point (°F) = %d</TD><TD>Moonset = %N</TD></TR><TR><TD>Dew Point (°C) = %D</TD></TR><TR><TD>UV Index (Value) = %u</TD></TR><TR><TD>UV Index (Text) = %U</TD></TR><TR><TD>Past 24-hr Precip = %b</TD></TR><TR><TD>Past 24-hr Snowfall = %B</TD></TR></TABLE><BR><B>Note:</B> Pressing the up and down remote control buttons will cycle display of pre-defined and custom modes. Display 2 settings only apply to Squeeze Boxes with multiple displays. Date and time formatting is controlled via their format settings on the standard DateTime screensaver included with SqueezeCenter.<BR>
+	NL	Je kunt de informatie die getoond wordt op de regels instellen met macrovariabelen:<TABLE><TR><TH><B>Huidige conditie:</B></TH><TH><B>Periode informatie:</B></TH><TH><B>wunderground.com:</B></TH></TR><TR><TD>Tijd = %1 (Alleen regel 1&2)</TD><TD>Periode (bijv. Vandaag) = %y</TD><TD>Temperatuur (°F) = %e</TD></TR><TR><TD>Datum = %2</TD><TD>Korte weersvoorspelling (bijv.  Zonnig) = %v</TD><TD>Temperatuur (°C) = %E</TD></TR><TR><TD>Temperatuur (°F) = %t</TD><TD>Hoog/Laag (°F) = %z</TD><TD>Vochtigheid = %H</TD></TR><TR><TD>Temperatuur (°C) = %T</TD><TD>Hoog/Laag (°C) = %Z</TD><TD>Windsnelheid (mph) = %j</TD></TR><TR><TD>Gevoelstemperatuur (°F) = %f</TD><TD>Neerslag = %x</TD><TD>Windsnelheid (kmh) = %J</TD></TR><TR><TD>Gevoelstemperatuur (°C) = %F</TD><TD>Gemiddeld hoog/laag (°F) = %a</TD><TD>Wind snelheid (knoop/uur) = %k</TD></TR><TR><TD>Vochtigheid = %h</TD><TD>Gemiddeld hoog/laag (°C) = %A</TD><TD>Windsnelheid (m/s) = %K</TD></TR><TR><TD>Windsnelheid (mph) = %w</TD><TD>Record hoog/laag (°F) = %c</TD><TD>Barometerdruk (inHg) = %l</TD></TR><TR><TD>Windsnelheid (km/uur) = %W</TD><TD>Record hoog/laag (°C) = %C</TD><TD>Barometerdruk (hPa) = %L</TD></TR><TR><TD>Windsnelheid (knoop/uur) = %q</TD><TD>Record hoog/laag = %g</TD><TD>Dauwpunt (°F) = %m</TD></TR><TR><TD>Windsnelheid (m/s) = %Q</TD><TD>Zonsopgang = %s</TD><TD>Dauwpunt (°C) = %M</TD></TR><TR><TD>Barometerdruk (inHg) = %p</TD><TD>Zonsondergang = %S</TD></TR><TR><TD>Barometerdruk (hPa) = %P</TD></TR><TR><TD>Dauwpunt (°F) = %d</TD></TR><TR><TD>Dauwpunt (°C) = %D</TD></TR><TR><TD>UV Index (Waarde) = %u</TD></TR><TR><TD>UV Index (Tekst) = %U</TD></TR><TR><TD>Past 24-hr Precip = %b</TD></TR><TR><TD>Past 24-hr Snowfall = %B</TD></TR></TABLE><BR><B>NB:</B> Door het drukken op de op- of neertoetsen toon je de voorgedefinieerde aangepaste scherm modes. Scherm 2 instellingen zijn alleen mogelijk bij Squeezeboxes met twee schermen. Datum en tijd formaat wordt overgenomen van de standaard datumtijd schermbeveiliger in Squeezecenter server.<BR>
+
+PLUGIN_SCREENSAVER_SUPERDATETIME_WEATHERFORMAT1T_CHOOSE
+	DE	Zeilenformat Zeile 1 (Anzeige 1):
+	EN	Line 1 format string (display 1):
+	NL	Regel 2 formaat string (scherm 1):
+
+PLUGIN_SCREENSAVER_SUPERDATETIME_WEATHERFORMAT1B
+	DE	Zeit-/Wetterformat Zeile 2
+	EN	Line 2 Time/Weather Format String
+	NL	Regel 2 tijd/weer formaat string
+
+PLUGIN_SCREENSAVER_SUPERDATETIME_WEATHERFORMAT1B_DESC
+	DE	Sie können hier die in Zeile 2 anzuzeigenden Informationen anpassen. Dies wird durch die Verwendung der gleichen Platzhaltern wie bei Zeile 1 ermöglicht.<BR><BR>Standardformat: %t/%h     %1
+	EN	You can customize the display of information shown on line two. This is accomplished using the same macro variables used on line one.<BR><BR>The default format string is: %t/%h     %1
+	NL	Je kunt de informatie die getoond wordt op regel één instellen. Dit stel je in met dezelfde macrovariabelen als bij regel één.<BR><BR>De standaard formaat string is: %t/%h     %1
+
+PLUGIN_SCREENSAVER_SUPERDATETIME_WEATHERFORMAT1B_CHOOSE
+	DE	Zeilenformat Zeile 2 (Anzeige 1):
+	EN	Line 2 format string (display 1):
+	NL	Regel 2 formaat string (scherm 1):
+
+PLUGIN_SCREENSAVER_SUPERDATETIME_WEATHERFORMAT2T
+	DE	Zeit-/Wetterformat
+	EN	Time/Weather Format Strings
+	NL	Tijd/weer formaat strings
+
+PLUGIN_SCREENSAVER_SUPERDATETIME_WEATHERFORMAT2T_DESC
+	DE	Bei SqueezeBoxen mit mehreren Anzeigen können Sie hier die auf der zweiten Anzeige in Zeile 1 anzuzeigenden Informationen anpassen. Dies wird durch die Verwendung der gleichen Platzhalter wie bei der ersten Anzeige ermöglicht.
+	EN	For Squeeze Boxes with multiple displays, you can customize the display of information shown on line one of the second display.  This is accomplished using the same macro variables used in display one.
+	NL	Voor Squeezeboxen met meerdere schermen kun je instellen welke informatie getoond wordt op regel één van het tweede scherm. Dit stel je in met dezelfde macrovariabelen als bij scherm één.
+
+PLUGIN_SCREENSAVER_SUPERDATETIME_WEATHERFORMAT2T_CHOOSE
+	DE	Zeilenformat Zeile 1 (Anzeige 2):
+	EN	Line 1 format string (display 2):
+	NL	Regel 1 formaat string (scherm 2):
+
+PLUGIN_SCREENSAVER_SUPERDATETIME_WEATHERFORMAT2B
+	DE	Zeit-/Wetterformat Zeile 2
+	EN	Line 2 Time/Weather Format String
+	NL	Regel 2 tijd/weer formaat string
+
+PLUGIN_SCREENSAVER_SUPERDATETIME_WEATHERFORMAT2B_DESC
+	DE	Bei SqueezeBoxen mit mehreren Anzeigen können Sie hier die auf der zweiten Anzeige in Zeile 2 anzuzeigenden Informationen anpassen. Dies wird durch die Verwendung der gleichen Platzhalter wie bei der ersten Anzeige ermöglicht.
+	EN	For Squeeze Boxes with multiple displays, you can customize the display of information shown on line two of the second display.  This is accomplished using the same macro variables used in display one.
+	NL	Voor SqueezeBoxen met meerdere schermen kun je instellen welke informatie getoond wordt op regel 2 van het tweede scherm. Dit stel je in met dezelfde macrovariabelen als bij scherm één.
+
+PLUGIN_SCREENSAVER_SUPERDATETIME_WEATHERFORMAT2B_CHOOSE
+	DE	Zeilenformat Zeile 2 (Anzeige 2):
+	EN	Line 2 format string (display 2):
+	NL	Regel 2 formaat string (display 2):
+
+PLUGIN_SCREENSAVER_SUPERDATETIME_OFFSET_CHOOSE
+	DE	Zeitzonenoffset:
+	EN	Time zone offset:
+	ES	Diferencia de huso horario:
+	NL	Tijdzone verschil:
+
+PLUGIN_SCREENSAVER_SUPERDATETIME_OFFSET
+	DE	Zeitzonenoffset
+	EN	Time Zone Offset
+	ES	Diferencia de Huso Horario
+	NL	Tijdzone verschil
+
+PLUGIN_SCREENSAVER_SUPERDATETIME_OFFSET_DESC
+	DE	Zeitdifferenz zwischen der lokalen Zeit und der US Eastern-Zeitzone festlegen. Diese Einstellung wird nur für die Spielzeitanzeige verwendet.
+	EN	The number of hours different your local time zone is from the US Eastern time zone.  This setting is only used for gametime display.
+	ES	El número de horas que separan tu huso horario con el huso horario Este de EEUU. Esta configuración se utiliza solo para mostrar el horario de los partidos.
+	NL	Het aantal uren verschil van de lokale tijd met de VS EST tijdzone. Deze instelling wordt alleen voor gametijd tonen gebruikt.
+
+PLUGIN_SCREENSAVER_SUPERDATETIME_SCROLL
+	DE	Textrollen
+	EN	Text Scrolling
+	ES	Desplazamiento de Texto
+	NL	Tekst scrollen
+
+PLUGIN_SCREENSAVER_SUPERDATETIME_SCROLL_DESC
+	DE	Sie können entscheiden wie der Anzeigeübergang zwischen zwei Spielen aussehen soll.<BR><B>Basic:</B> Änderungen werden umgehend angezeigt ohne den Text rollen zu lassen.<BR><B>Slide:</B> Änderungen werden in bzw. aus der Anzeige geschoben.<BR><B>Ticker:</B> Änderungen werden in bzw. aus der Anzeige gerollt wie ein Aktienticker.
+	EN	You have a choice as to how the display transitions from one game to the next.<BR><B>Basic:</B> Changes are immediately displayed with no scrolling.<BR><B>Slide:</B> Changes slide onto and off of the screen.<BR><B>Ticker:</B> Changes scroll onto and off of the screen like a stock ticker.
+	ES	Se puede elegir cómo mostrar las transiciones de un partido a otro. <BR><B>Básico:</B> Los cambios se muestran en forma inmediata sin desplazamiento.<BR><B>Desplazar:</B> Los cambios se desplazan hacia y afuera de la pantalla.
+	NL	Je hebt een keuze hoe de schermovergangen van de ene game naar de volgende verlopen.<BR><B>Simpel:</B>Nieuwe informatie wordt direct getoond zonder scrollen.<BR><B>Schuiven:</B> Nieuwe informatie loopt over het scherm heen.<BR><B>Ticker:</B>Informatie rol het scherm op en af zoals een beursticker.
+
+PLUGIN_SCREENSAVER_SUPERDATETIME_FDAYS
+	DE	Vorhersagetage
+	EN	Forecast Days
+	NL	Dagen voorspelling
+
+PLUGIN_SCREENSAVER_SUPERDATETIME_FDAYS_DESC
+	DE	Sie haben die Möglichkeit die Anzahl der Tage für die eine Wettervorhersage angezeigt werden soll mittels der Hoch- und Runtertaste an der Fernbedienung einzustellen.<BR><B>Achtung:</B> Wird eine große Anzahl von Tagen ausgewählt, so verlängert sich die Zeit des Datenabrufs. Weiterhin kann während eines Datenabrufs die SqueezeCenter-Performance negativ beeinflusst werden.
+	EN	You have a choice as to how many days worth of upcoming weather forecasts are available via the Up and Down remote keys.<BR><B>Note:</B> A larger number selected will cause data refreshes to take longer to complete.  Data refreshes tend to impact SqueezeCenter performance while they are taking place.
+	NL	Je kunt het aantal dagen instellen waarvoor de weersvoorspelling moet worden opgehaald. Dit is beschikbaar op de afstandsbediening met de op- en neertoetsen. <BR><B>NB:</B>Met een groot aantal dagen duurt het verversen van de gegevens langer. Het informatie verversen heeft invloed op de performance van SqueezeCenter server tijdens het verversen.
+
+PLUGIN_SCREENSAVER_SUPERDATETIME_SCROLL_CHOOSE
+	DE	Rolltyp:
+	EN	Scroll type:
+	ES	Tipo de desplazamiento:
+	NL	Scrolltype:
+
+PLUGIN_SCREENSAVER_SUPERDATETIME_STOCKS
+	DE	Aktien
+	EN	Stocks
+	NL	Beurs
+
+PLUGIN_SCREENSAVER_SUPERDATETIME_STOCKS_DESC
+	DE	Sie können eine oder mehrere Aktien oder Indizes angeben (zum Beispiel: ^ DJI, ^ SPC, ^ IXIC), um Informationen zu erhalten. Einträge mit Leerzeichen trennen. Kurse werden von finance.yahoo.com zur Verfügung gestellt und Einzelkurse werden um 20 Minuten verschoben. Es wird nicht garantiert, dass die Kurse korrekt sind.
+	EN	You can specify one or more stocks or index (for example: ^DJI, ^SPC, ^IXIC) to retrieve information about. Separate entries with space. Quotes are supplied by finance.yahoo.com and individual stocks quotes are delayed 20 minutes.  Quotes are not guaranteed to be accurate.
+	NL	U kunt een of meer aandelen of een index opgeven (bijvoorbeeld: ^ DJI, ^ SPC, ^ IXIC) om informatie over op te halen. Afzonderlijke items met spatie. Citaten worden geleverd door finance.yahoo.com en individuele aandelenkoersen zijn 20 minuten vertraagd. Citaten zijn niet gegarandeerd nauwkeurig.
+
+PLUGIN_SCREENSAVER_SUPERDATETIME_STOCKS_CHOOSE
+	DE	Aktien:
+	EN	Stocks:
+	NL	Beurs:
+
+PLUGIN_SCREENSAVER_SUPERDATETIME_STOCK1FORMAT
+	DE	Aktienanzeigeformat Zeile 1
+	EN	Stock Line 1 Format
+	NL	Beursinfo regel 1 formaat
+
+PLUGIN_SCREENSAVER_SUPERDATETIME_STOCK1FORMAT_DESC
+	DE	Sie können die Aktieninformationen, die in jeder Zeile angezeigt werden sollen, mittels Makrovariablen festlegen:<BR><BR>Tickersymbol = %s<BR>Name = %n<BR>Letzter Kurs =%l<BR>Letztes Kursdatum (EST) = %d<BR>Letzte Kurszeit (EST) = %t<BR>Vorheriger Schlusskurs = %p<BR>Änderung = %c<BR>Prozentuale Änderung = %z<BR>Eröffnungskurs = %o<BR>Höchster Kurs = %h<BR>Niedrigster Kurs = %w<BR>Volumen = %v<BR><BR>Das Standardformat für Zeile 1 ist: %n<BR>Das Standardformat für Zeile 2 ist: %l %c %z %v
+	EN	You can customize the stock information shown on each line by using macro variables:<BR>Ticker Symbol = %s<BR>Name = %n<BR>Last Trade = %l<BR>Last Trade Date (EST) = %d<BR>Last Trade Time (EST) = %t<BR>Previous Close = %p<BR>Change = %c<BR>Percent Change = %z<BR>Open = %o<BR>High = %h<BR>Low = %w<BR>Volume = %v<BR><BR>The default line 1 format string is: %n<BR>The default line 2 format string is: %l %c %z %v
+	NL	Je kunt de beurs info die getoond wordt op elke regel instellen met macrovariabelen: <BR>Ticker symbool = %s<BR>Naam = %n<BR>Laatste handel = %l<BR>Laatste handel datum (EST) = %d<BR>Laatste handel tijd (EST) = %t<BR>Vorige sluiting = %p<BR>Wijziging = %c<BR>Procentuele wijziging = %z<BR>Open = %o<BR>Hoogste = %h<BR>Laagste = %w<BR>Volume = %v<BR><BR>De standaard string voor regel 1 is: %n<BR>De standaard string voor regel 2 is: %l %c %z %v
+
+PLUGIN_SCREENSAVER_SUPERDATETIME_STOCK1FORMAT_CHOOSE
+	DE	Aktienformat Zeile 1:
+	EN	Stock line 1 format string:
+	NL	Beursinfo regel 1 formaat string:
+
+PLUGIN_SCREENSAVER_SUPERDATETIME_STOCK2FORMAT
+	DE	Aktienformat Zeile 2
+	EN	Stock Line 2 Format
+	NL	Beursinfo regel 2 formaat
+
+PLUGIN_SCREENSAVER_SUPERDATETIME_STOCK2FORMAT_DESC
+	DE	Sie können hier die in Zeile 2 anzuzeigenden Aktieninformationen anpassen. Dies wird durch die Verwendung der gleichen Platzhaltern wie bei Zeile 1 ermöglicht.<BR><BR>Standardformat: %l %c %z %v
+	EN	You can customize the display of stock information shown on line two. This is accomplished using the same macro variables used in line one.<BR><BR>The default format string is: %l %c %z %v
+	NL	Je kunt het tonen van beursinformatie op regel twee instellen. Dit gaat met dezelfde macrovariabelen als in regel één.<BR><BR>De standaard string is: %l %c %z %v
+
+PLUGIN_SCREENSAVER_SUPERDATETIME_STOCK2FORMAT_CHOOSE
+	DE	Aktienanzeigeformat Zeile 2:
+	EN	Stock line 2 format string:
+	NL	Beursinfo regel 2 formaat string:
+
+PLUGIN_SCREENSAVER_SUPERDATETIME_TEAMLOGOS
+	DE	Mannschaftslogos
+	EN	Team Logos
+	NL	Team logo's
+
+PLUGIN_SCREENSAVER_SUPERDATETIME_TEAMLOGOS_DESC
+	DE	Sie können hier festlegen wann Mannschaftslogos angezeigt werden sollen.<BR><B>Anmerkung:</B> Aktuell werden alle MLB und einige NFL Mannschaften unterstützt. Im Zweizeilenmodus sieht die Anzeige am besten aus.  Falls ein Logo nicht verfügbar ist wird der Mannschaftsnahme angezeigt.
+	EN	You have the option on when to display graphical team logos.<BR><B>Note:</B> Currently all MLB and some NFL teams are supported and look best in two line mode.  If an icon is not available the team name will be shown in text.
+	NL	Je hebt de mogelijkheid om in te stellen waneer een grafische team logo getoond moet worden.<BR><B>NB:</B> Op dit moment zien de alle MLB en sommige NFL teams het beste eruit in de twee-regel mode. Als een logo niet beschikbaar is dan wordt de tekst getoond.
+
+PLUGIN_SCREENSAVER_SUPERDATETIME_ADVANCED
+	DE	Erweiterte Einstellungen
+	EN	Advanced Settings
+
+PLUGIN_SCREENSAVER_SUPERDATETIME_ADVANCED_DESC
+	DE	Die folgenden Einstellungen sind nur für erfahrene Anwender bestimmt.  Die Standartwerte zu verändern kann einen Einfluss auf die SqueezeServer-Leistung oder die SuperDateTime-Funktionalität haben. Änderungen erfolgen auf eigenes Risiko!
+	EN	The following settings are for advanced users only.  Changing their default values may impact SqueezeServer performance or SuperDateTime functionality.  Change at your own risk!
+
+PLUGIN_SCREENSAVER_SUPERDATETIME_DRWEACHDLY
+	DE	Verzögerung der Symbolaktualisierung
+	EN	Icon Draw Each Delay
+
+PLUGIN_SCREENSAVER_SUPERDATETIME_DRWEACHDLY_DESC
+	DE	Bei jeder Datenaktualisierung zeichnet und puffert SuperDateTime für jede Squeezebox die Wettersymbole Pixel für Pixel. Die Aktualisierung wird abwechselnd für jedes Symbol durchgeführt um dem Blockieren von Resourcen vorzubeugen.  Sie können konfigurieren wie viele Sekunden zwischen jeder Symbolaktualsierung gewartet werden soll. Ein niefriger Wert für zu einer schnelleren Datenaktualisierung, erhöht aber das Risiko Resourcen zu blockieren.<BR>Standartwert=0.5
+	EN	With each data refresh SuperDateTime draws and caches each weather icon pixel by pixel for each slim player.  Drawing of each icon is staggered by time to prevent resource blocking.  You can configure how many seconds to stagger inbetween each icon draw.  A lower value will result in faster data refreshes but an increased risk in blocking.<BR>DEFAULT=0.5
+
+PLUGIN_SCREENSAVER_SUPERDATETIME_TEAMLOGOS_CHOOSE
+	DE	Mannschaftslogos:
+	EN	Team Logos:
+	NL	Team logo's:
+
+PLUGIN_SCREENSAVER_SUPERDATETIME_PRO
+	DE	Profisport
+	EN	Professional Sports
+	NL	professionele sporten
+
+PLUGIN_SCREENSAVER_SUPERDATETIME_PRO_DESC
+	DE	Wählen Sie die Profisport-Mannschaften aus über die Informationen empfangen werden sollen. Wählen sie "None" um eine Mannschaft zu entfernen oder "All" um alle Manschaften zu beobachten. Um mehrere Mannschaften einer Liga auszuwählen müssen diese eine nach der anderen hinzugefügt werden.
+	EN	The professional sports team(s) you would like to retrieve game data about.  Select "None" to remove a team, or "All" to monitor all teams.  Multiple teams can be selected for a sport by adding them one at a time.
+	NL	De professionele sportteams waarvoor je wedstrijdinformatie wilt ophalen. Selecteer "None" om een team te verwijderen of "ALL" om alle teams te monitoren. Meerdere teams kunnen geselecteerd worden voor een sport door ze één voor één toe te voegen.
+
+PLUGIN_SCREENSAVER_SUPERDATETIME_MLB_DESC
+	DE	Die MLB Baseball-Mannschaft(en) über die sie Informationen empfangen möchten.  Wählen sie "None" um eine Mannschaft zu entfernen oder "All" um alle Manschaften zu beobachten.
+	EN	The MLB baseball team(s) you would like to retrieve game data about.  Select "None" to remove a team, or "All" to monitor all teams.
+	ES	El/los equipo/s de baseball de los que se quiere mostrar información. Elegir "Ninguno" para eliminar un equipo, o "Todos" para monitorear todos los equipos.
+	NL	De MLB basketbalteams waarvoor je de wedstrijdinformatie wilt ophalen. Selecteer "None" om een team te verwijderen of "ALL" om alle teams te monitoren.
+
+PLUGIN_SCREENSAVER_SUPERDATETIME_MLB
+	DE	MLB Baseball-Mannschaften
+	EN	MLB Baseball Teams
+	ES	Equipo de Baseball MLB
+	NL	MLB baseball teams
+
+PLUGIN_SCREENSAVER_SUPERDATETIME_MLB_CHOOSE
+	DE	Baseball-Mannschaft:
+	EN	Baseball team:
+	ES	Equipo de baseball:
+	NL	Baseball team:
+
+PLUGIN_SCREENSAVER_SUPERDATETIME_NBA_DESC
+	DE	Die NBA Basketball-Mannschaft(en) über die sie Informationen emfangen möchten.  Wählen sie "None" um eine Mannschaft zu entfernen oder "All" um alle Manschaften zu beobachten.
+	EN	The NBA basketball team(s) you would like to retrieve game data about.  Select "None" to remove a team, or "All" to monitor all teams.
+	ES	El/los equipo/s de basketball de los que se quiere mostrar información. Elegir "Ninguno" para eliminar un equipo, o "Todos" para monitorear todos los equipos.
+	NL	De NBA basketball team(s) waarvoor je wedstrijdinformatie wilt ophalen. Selecteer "None" om een team te verwijderen of "ALL" om alle teams te monitoren.
+
+PLUGIN_SCREENSAVER_SUPERDATETIME_NBA
+	DE	NBA Basketball-Mannschaften
+	EN	NBA Basketball Teams
+	ES	Equipo de Basketball NBA
+	NL	NBA basketball teams
+
+PLUGIN_SCREENSAVER_SUPERDATETIME_NBA_CHOOSE
+	DE	Basketball-Mannschaft:
+	EN	Basketball team:
+	ES	Equipo de basketball:
+	NL	Basketball team:
+
+PLUGIN_SCREENSAVER_SUPERDATETIME_NHL_DESC
+	DE	Die NHL Eishockey-Mannschaft(en) über die sie Informationen emfangen möchten.  Wählen sie "None" um eine Mannschaft zu entfernen oder "All" um alle Manschaften zu beobachten.
+	EN	The NHL hockey team(s) you would like to retrieve game data about.  Select "None" to remove a team, or "All" to monitor all teams.
+	ES	El/los equipo/s de hockey de los que se quiere mostrar información. Elegir "Ninguno" para eliminar un equipo, o "Todos" para monitorear todos los equipos.
+	NL	De NHL hockeyteams waarvoor je wedstrijdinformatie wilt ophalen. Selecteer "None" om een team te verwijderen of "ALL" om alle teams te monitoren.
+
+PLUGIN_SCREENSAVER_SUPERDATETIME_NHL
+	DE	NHL Eishockey-Mannschaften
+	EN	NHL Hockey Teams
+	ES	Equipos de Hockey NHL
+	NL	NHL hockeyteams
+
+PLUGIN_SCREENSAVER_SUPERDATETIME_NHL_CHOOSE
+	DE	Eishockey-Mannschaft:
+	EN	Hockey team:
+	ES	Equipo de hockey:
+	NL	Hockeyteam:
+
+PLUGIN_SCREENSAVER_SUPERDATETIME_NFL_DESC
+	DE	Die NHL Eishockey-Mannschaft(en) über die sie Informationen emfangen möchten.  Wählen sie "None" um eine Mannschaft zu entfernen oder "All" um alle Manschaften zu beobachten.
+	EN	The NFL football team(s) you would like to retrieve game data about.  Select "None" to remove a team, or "All" to monitor all teams.
+	ES	El/los equipo/s de football americano de los que se quiere mostrar información. Elegir "Ninguno" para eliminar un equipo, o "Todos" para monitorear todos los equipos.
+	NL	De NFL footballteams waarvoor je wedstrijdinformatie wilt ophalen. Selecteer "None" om een team te verwijderen of "ALL" om alle teams te monitoren.
+
+PLUGIN_SCREENSAVER_SUPERDATETIME_NFL
+	DE	NFL American Football-Mannschaften
+	EN	NFL Football Teams
+	ES	Equipo de Football americano NFL
+	NL	NFL Footballteams
+
+PLUGIN_SCREENSAVER_SUPERDATETIME_NFL_CHOOSE
+	DE	American Football-Mannschaft:
+	EN	Football team:
+	ES	Equipo de football americano:
+	NL	Footballteam:
+
+PLUGIN_SCREENSAVER_SUPERDATETIME_CBBALLCONF
+	DE	College-Basketball-Konferenz
+	EN	College Basketball Conference
+	NL	College Basketball conference
+
+PLUGIN_SCREENSAVER_SUPERDATETIME_CBBALLCONF_DESC
+	DE	Sie können wählen zu welcher College-Basketball-Konferenz Datendateien abgerufen werden sollen.<BR><B>Anmerkung:</B>Die Auswahl von "all" kann zum Abruf von sehr großen Dateien führen und Serverabstürze bei der Datenverarbeitung verursachen.
+	EN	You have a choice as to which college basketball conference data file is retrieved.<BR><B>Note:</B> Selecting "all" can result in a large download which may cause brief server hangs while data is being processed.
+	NL	Je hebt de keuze welke college basketball conference data bestand opgehaald wordt.<BR><B>NB:</B> Het selecteren van "all" kan resulteren in een grote download waardoor de server kort kan stoppen terwijl de informatie wordt verwerkt.
+
+PLUGIN_SCREENSAVER_SUPERDATETIME_CBBALLCONF_CHOOSE
+	DE	Konferenz:
+	EN	Conference:
+
+PLUGIN_SCREENSAVER_SUPERDATETIME_CBB
+	DE	College-Basketball-Mannschaften
+	EN	College Basketball
+
+PLUGIN_SCREENSAVER_SUPERDATETIME_CBB_DESC
+	DE	Geben Sie die ESPN Mannschaftsnamen ein deren Spieldaten sie empfangen möchten.  Geben Sie eine Mannschaft pro Zeile ein oder "All" um alle Mannschaften anzuzeigen.
+	EN	Enter the ESPN team name of the team(s) you would like to retrieve game data about.  Enter one team per line or "All" to display all teams.
+	NL	Voer de ESPN team naam van de team(s) waarvoor je wedstrijdinformatie wilt ophalen. Voer één team per regel of "ALL" om alle teams te tonen.
+
+PLUGIN_SCREENSAVER_SUPERDATETIME_CFBALLCONF
+	DE	College-American Football-Konferenz
+	EN	College Football Conference
+
+PLUGIN_SCREENSAVER_SUPERDATETIME_CFBALLCONF_DESC
+	DE	Sie können wählen zu welcher College-American Football-Konferenz Datendateien abgerufen werden sollen.<BR><B>Anmerkung:</B> Die Auswahl von "All Div I-A" oder "All Div I-AA" kann zum Abruf von sehr großen Dateien führen und Serverabstürze bei der Datenverarbeitung verursachen.
+	EN	You have a choice as to which college football conference data file is retrieved.<BR><B>Note:</B> Selecting "All Div I-A"  or "All Div I-AA" can result in a large download which may cause brief server hangs while data is being processed.
+	NL	Je hebt de keuze welke college football conference data bestand opgehaald wordt.<BR><B>NB:</B> Het selecteren van "All Div I-A"  of "All Div I-AA" kan resulteren in een grote download waardoor de server kort kan stoppen terwijl de informatie wordt verwerkt.
+
+PLUGIN_SCREENSAVER_SUPERDATETIME_CFBALLCONF_CHOOSE
+	DE	Konferenz:
+	EN	Conference:
+
+PLUGIN_SCREENSAVER_SUPERDATETIME_CFB
+	DE	College-American Football-Mannschaften
+	EN	College Football
+
+PLUGIN_SCREENSAVER_SUPERDATETIME_CFB_DESC
+	DE	Geben Sie die ESPN Mannschaftsnamen ein deren Spieldaten sie empfangen möchten.  Geben Sie eine Mannschaft pro Zeile ein oder "All" um alle Mannschaften anzuzeigen.
+	EN	Enter the ESPN team name of the team(s) you would like to retrieve game data about.  Enter one team per line or "All" to display all teams.
+	NL	Voer de ESPN team naam van de teams waarvoor je game informatie wilt ophalen. Voer één team per regel in of "ALL" om alle teams te tonen.
+
+PLUGIN_SCREENSAVER_SUPERDATETIME_TIME
+	DE	Zeitintervall
+	EN	Time Interval
+	ES	Intervalo de Tiempo
+	NL	Tijd interval
+
+PLUGIN_SCREENSAVER_SUPERDATETIME_TIME_DESC
+	DE	Anzahl Sekunden nach denen zur Zeitanzeige gewechselt werden soll wenn kein Spiel aktiv ist.
+	EN	You can configure how many seconds the time is shown before cycling display information for when games are active or upcoming/complete.
+	NL	Je kunt configureren hoeveel seconden de tijd getoond wordt voor het tonen van games die actief of aankomend/compleet zijn.
+
+PLUGIN_SCREENSAVER_SUPERDATETIME_TIME_CHOOSE
+	DE	Anstehender/Abgeschlossender Intervall:
+	EN	Upcoming/Complete Interval:
+	NL	Aankomend/Complete interval:
+
+PLUGIN_SCREENSAVER_SUPERDATETIME_ATIME
+	DE	Zeitintervall (aktives Spiel)
+	EN	Time Interval (Active Game)
+	ES	Intervalo de Tiempo (Partido Disputándose)
+	NL	Tijdinterval (Actieve game)
+
+PLUGIN_SCREENSAVER_SUPERDATETIME_ATIME_DESC
+	DE	Anzahl Sekunden nach denen zur Zeitanzeige gewechselt werden soll wenn ein Spiel aktiv ist.
+	EN	Number of seconds to display time information before cycling when a game is active. 
+	ES	Número de segundos durante los cuales mostrar la información antes de ciclar cuando hay algún partido disputándose.
+	NL	Aantal seconden dat de tijd getoond wordt voor het tonen van actieve game informatie.
+
+PLUGIN_SCREENSAVER_SUPERDATETIME_ATIME_CHOOSE
+	DE	Intervall des aktiven Spiels:
+	EN	Active Game Interval:
+	NL	Actieve game interval:
+
+PLUGIN_SCREENSAVER_SUPERDATETIME_SCORE
+	DE	Spielintervall
+	EN	Game Interval
+	NL	Game interval
+
+PLUGIN_SCREENSAVER_SUPERDATETIME_SCORE_DESC
+	DE	Anzahl Sekunden während denen Informationen über zukünftige oder bereits beendete Spiele angezeigt werden sollen bevor die Anzeige gewechselt wird.
+	EN	You can configure how many seconds an individual game's information is shown before cycling display information for when games are active or upcoming/complete.
+	NL	Je kunt instellen hoeveel seconden individuele game informatie getoond wordt voordat de volgende informatie wordt getoond wanneer games actief of nog niet gestart/compleet zijn.
+
+PLUGIN_SCREENSAVER_SUPERDATETIME_SCORE_CHOOSE
+	DE	Anstehender/Abgeschlossender Intervall:
+	EN	Upcoming/Complete Interval:
+	NL	Aankomend/complete interval:
+
+PLUGIN_SCREENSAVER_SUPERDATETIME_ASCORE
+	DE	Intervall der Ergebnisanzeige bei aktiven Spielen
+	EN	Active Game Score Interval
+	ES	Intervalo para Tanteador de Partido en Juego
+	NL	Actieve game score interval
+
+PLUGIN_SCREENSAVER_SUPERDATETIME_ASCORE_DESC
+	DE	Anzahl Sekunden während denen das Ergebnis eines aktiven Spiels angezeigt werden soll bevor die Anzeige gewechselt wird.
+	EN	Number of seconds to display an active game's score information before cycling. 
+	ES	Número de segundos durante los cuales mostrar la información del tanteador del partido en juego, antes de ciclar.
+	NL	Aantal seconden dat een actieve game score te zien is voor het wisselen.
+
+PLUGIN_SCREENSAVER_SUPERDATETIME_ASCORE_CHOOSE
+	DE	Intervall des aktiven Spiels:
+	EN	Active Game Interval:
+	NL	Actieve game interval:
+
+PLUGIN_SCREENSAVER_SUPERDATETIME_REFRESH
+	DE	Datenaktualisierungsintervall
+	EN	Data Refresh Interval
+	ES	Intervalo de Refresco de Datos
+	NL	Data verversinterval
+
+PLUGIN_SCREENSAVER_SUPERDATETIME_REFRESH_DESC
+	DE	Anzahl der Minuten bevor externe Daten aktualisiert werden.
+	EN	Number of minutes before external data is refreshed. 
+	ES	Número de minutos antes que se refresque la información del clima y deportiva.
+	NL	Aantal minuten voor de externe data is ververst.
+
+PLUGIN_SCREENSAVER_SUPERDATETIME_REFRESH_CHOOSE
+	DE	Aktualisierungsintervall in Minuten:
+	EN	Refresh interval in minutes:
+	ES	Intervalo de refresco en minutos:
+	NL	Verversfrequentie in minuten:
+	
+PLUGIN_SCREENSAVER_SUPERDATETIME_LANG
+	EN	Language
+	FR	Langue
+
+PLUGIN_SCREENSAVER_SUPERDATETIME_LANG_DESC
+	EN	Set interface language (en-US (default), fr-FR, etc.)
+	FR	Défini la langue de l'interface (en-US (par défaut), fr-FR, etc.)
+
+PLUGIN_SCREENSAVER_SUPERDATETIME_LWEATHER
+	DE	Anzeige der ausführlichen Wettervorhersage
+	EN	Default Units and Long Weather Forecast Display
+	NL	Standaard eenheid en uitgebreide weersvoorspelling scherm
+
+PLUGIN_SCREENSAVER_SUPERDATETIME_LWEATHER_DESC
+	DE	Wählen Sie aus wann die ausführliche Wettervorhersage angezeigt werden soll.<BR><B>Anmerkung:</B> Ungeachtet dieser Einstellung kann die ausführliche Wettervorhersage jederzeit durch Drücken des FWD und REW Knopfes auf der Fernbedienung angezeigt werden.
+	EN	You have a choice as to if long textual weather forecasts and alerts are automatically displayed and the preferred units of measure for display locations that are not configurable via format strings (10day forecasts, Extras menu, etc.).<BR><B>Note:</B> Regardless of frequency setting, long weather forecasts are always viewable via the FWD and REW remote control buttons.
+	NL	Kies of je de uitgebreide weersvoorspelling automatisch wilt zien met de voorkeurs eenheid voor temperatuur en windsnelheid voor schermposities die niet configureerbaar zijn met de formaat strings (10dage voorspelling, Duet, etc.). <BR><B>Let op:</B>Onafhankelijk van de instelling kun je de uitgebreide weersvoorspelling altijd zien met de FWD en REQ toetsen op de afstandsbediening.
+
+PLUGIN_SCREENSAVER_SUPERDATETIME_LWEATHER_CHOOSE
+	DE	Ausführliche Wettervorhersage:
+	EN	Long Weather Forecasts:
+	ES	Intervalo de Tiempo en segundos:
+	NL	Lange termijn weersvoorspelling:
+
+SETUP_SCREENSAVER_USE
+	DE	Bildschirmschoner verwenden
+	EN	Use as current screensaver
+	ES	Usar como protector de pantalla actual
+	NL	Als huidige schermbeveiliger gebruiken

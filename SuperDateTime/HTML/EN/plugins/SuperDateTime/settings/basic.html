@@ -1,0 +1,272 @@
+[% PROCESS settings/header.html %]
+	<div class="settingSection">
+		<div class="prefHead">[% "SETUP_GROUP_SUPERDATETIME" | string | upper %]</div>
+		<div class="prefDesc">[% "SETUP_GROUP_SUPERDATETIME_DESC" | string %]</div>
+<HR>
+<p>SuperDateTime is free and is released under the open source GNU General Public License for informational non-commerical use.<BR>Please support its development by donating directly via
+<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=gb@gregbrown.net&item_name=Greg Brown&no_shipping=0&no_note=1&tax=0&currency_code=USD&lc=US&bn=PP-DonationsBF&charset=UTF-8" target='_new'>PayPal</a>.</font></p>
+<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=VMABB3654QVBW" target='_new'><img src="https://www.paypal.com/en_US/i/btn/btn_donate_LG.gif" border="0" alt="PayPal - The safer, easier way to pay online!" /></a>
+<HR>
+	</div>
+
+	<div class="settingSection">
+		<div class="prefHead">[% "PLUGIN_SCREENSAVER_SUPERDATETIME_REFRESH" | string | upper %]</div>
+		<div class="prefDesc">[% "PLUGIN_SCREENSAVER_SUPERDATETIME_REFRESH_DESC" | string %]</div>
+
+		<input type="text" class="stdedit" name="refresh" id="refresh" value="[% prefs.refresh %]" size="2">
+	</div>
+
+	<div class="settingSection">
+		<div class="prefHead">[% "PLUGIN_SCREENSAVER_SUPERDATETIME_LANG" | string | upper %]</div>
+		<div class="prefDesc">[% "PLUGIN_SCREENSAVER_SUPERDATETIME_LANG_DESC" | string %]</div>
+
+		<input type="text" class="stdedit" name="lang" id="lang" value="[% prefs.lang %]" size="7">
+	</div>
+
+	<div class="settingSection">
+		<div class="prefHead">[% "PLUGIN_SCREENSAVER_SUPERDATETIME_CITY" | string | upper %]</div>
+		<div class="prefDesc">[% "PLUGIN_SCREENSAVER_SUPERDATETIME_CITY_DESC" | string %]</div>
+
+		<input type="text" class="stdedit" name="city" id="city" value="[% prefs.city %]" size="10">
+	</div>
+
+	<div class="settingSection">
+		<div class="prefHead">[% "PLUGIN_SCREENSAVER_SUPERDATETIME_WUNDER" | string | upper %]</div>
+		<div class="prefDesc">[% "PLUGIN_SCREENSAVER_SUPERDATETIME_WUNDER_DESC" | string %]</div>
+
+		<input type="text" class="stdedit" name="wunder" id="wunder" value="[% prefs.wunder %]" size="15">
+	</div>
+
+	<div class="settingSection">
+		<div class="prefHead">[% "PLUGIN_SCREENSAVER_SUPERDATETIME_LWEATHER" | string | upper %]</div>
+		<div class="prefDesc">[% "PLUGIN_SCREENSAVER_SUPERDATETIME_LWEATHER_DESC" | string %]</div>
+
+		<table>
+		<tr><th><b>Long Forecast Frequency</b></th><th>&nbsp;&nbsp;&nbsp;</th><th><b>Temperature Unit</b></th><th>&nbsp;&nbsp;&nbsp;</th><th><b>Wind Unit</b></th></tr>
+		<tr>
+		<td><select name="lweather">
+			<option value="1" [% IF prefs.lweather == "1" %]selected[% END %]>Never</option>
+			<option value="2" [% IF prefs.lweather == "2" %]selected[% END %]>Active Games Only</option>
+			<option value="3" [% IF prefs.lweather == "3" %]selected[% END %]>Inactive Games Only</option>
+			<option value="4" [% IF prefs.lweather == "4" %]selected[% END %]>Always</option>
+			<option value="5" [% IF prefs.lweather == "5" %]selected[% END %]>External API Only</option>
+			</select>
+		</td><td></td>
+		<td><select name="temperature">
+			<option value="0" [% IF prefs.temperature == "0" %]selected[% END %]>Fahrenheit</option>
+			<option value="1" [% IF prefs.temperature == "1" %]selected[% END %]>Celsius</option>
+			</select>
+		</td><td></td>
+		<td><select name="windunit">
+			<option value="0" [% IF prefs.windunit == "0" %]selected[% END %]>mi/hr</option>
+			<option value="1" [% IF prefs.windunit == "1" %]selected[% END %]>km/hr</option>
+			<option value="2" [% IF prefs.windunit == "2" %]selected[% END %]>kt/hr</option>
+			<option value="3" [% IF prefs.windunit == "3" %]selected[% END %]>m/s</option>
+			</select>
+			</td>
+		</tr>
+		</table>
+	</div>
+
+	<div class="settingSection">
+		<div class="prefHead">[% "PLUGIN_SCREENSAVER_SUPERDATETIME_STOCKS" | string | upper %]</div>
+		<div class="prefDesc">[% "PLUGIN_SCREENSAVER_SUPERDATETIME_STOCKS_DESC" | string %]</div>
+
+		[% "PLUGIN_SCREENSAVER_SUPERDATETIME_STOCKS_CHOOSE" | string %]&nbsp;<input type="text" class="stdedit" name="stocks" id="stocks" value="[% prefs.stocks %]" size="70">
+
+		<BR>
+
+		<div class="prefDesc">[% "PLUGIN_SCREENSAVER_SUPERDATETIME_STOCK1FORMAT_DESC" | string %]</div>
+			[% "PLUGIN_SCREENSAVER_SUPERDATETIME_STOCK1FORMAT_CHOOSE" | string %]&nbsp;<input type="text" class="stdedit" name="stock1format" id="stock1format" value="[% prefs.stock1format %]" size="40"><BR>
+			[% "PLUGIN_SCREENSAVER_SUPERDATETIME_STOCK2FORMAT_CHOOSE" | string %]&nbsp;<input type="text" class="stdedit" name="stock2format" id="stock2format" value="[% prefs.stock2format %]" size="40">
+	</div>
+
+	<div class="settingSection">
+		<div class="prefHead">[% "PLUGIN_SCREENSAVER_SUPERDATETIME_PRO" | string | upper %]</div>
+		<div class="prefDesc">[% "PLUGIN_SCREENSAVER_SUPERDATETIME_PRO_DESC" | string %]</div>
+		<table>
+		<input type="hidden" name="mlb" value="0">
+		[% FOREACH selTeam = prefs.mlb %]
+			[% IF selTeam != 0 %]
+			<tr><td>MLB:</td><td><select name="mlb">
+				[% FOREACH teams = mlbTeams %]
+					<option value="[% teams.key %]" [% IF selTeam == teams.key %]selected[% END %]>[% teams.value %]</option>
+				[% END %]
+			</select><BR></td></tr>
+			[% END %]
+		[% END %]
+
+		<tr><td>MLB:</td><td><select name="mlb">
+			[% FOREACH format = mlbTeams %]
+				<option value="[% format.key %]">[% format.value %]</option>
+			[% END %]
+		</select><BR><BR></td></tr>
+
+		<input type="hidden" name="nfl" value="0">
+		[% FOREACH selTeam = prefs.nfl %]
+			[% IF selTeam != 0 %]
+			<tr><td>NFL:</td><td><select name="nfl">
+				[% FOREACH teams = nflTeams %]
+					<option value="[% teams.key %]" [% IF selTeam == teams.key %]selected[% END %]>[% teams.value %]</option>
+				[% END %]
+			</select><BR></td></tr>
+			[% END %]
+		[% END %]
+
+		<tr><td>NFL:</td><td><select name="nfl">
+			[% FOREACH format = nflTeams %]
+				<option value="[% format.key %]">[% format.value %]</option>
+			[% END %]
+		</select><BR><BR></td></tr>
+
+		<input type="hidden" name="nba" value="0">
+		[% FOREACH selTeam = prefs.nba %]
+			[% IF selTeam != 0 %]
+			<tr><td>NBA:</td><td><select name="nba">
+				[% FOREACH teams = nbaTeams %]
+					<option value="[% teams.key %]" [% IF selTeam == teams.key %]selected[% END %]>[% teams.value %]</option>
+				[% END %]
+			</select><BR></td></tr>
+			[% END %]
+		[% END %]
+
+		<tr><td>NBA:</td><td><select name="nba">
+			[% FOREACH format = nbaTeams %]
+				<option value="[% format.key %]">[% format.value %]</option>
+			[% END %]
+		</select><BR><BR></td></tr>
+
+		<input type="hidden" name="nhl" value="0">
+		[% FOREACH selTeam = prefs.nhl %]
+			[% IF selTeam != 0 %]
+			<tr><td>NHL:</td><td><select name="nhl">
+				[% FOREACH teams = nhlTeams %]
+					<option value="[% teams.key %]" [% IF selTeam == teams.key %]selected[% END %]>[% teams.value %]</option>
+				[% END %]
+			</select><BR></td></tr>
+			[% END %]
+		[% END %]
+
+		<tr><td>NHL:</td><td><select name="nhl">
+			[% FOREACH format = nhlTeams %]
+				<option value="[% format.key %]">[% format.value %]</option>
+			[% END %]
+		</select></td></tr>
+		</table>
+	</div>
+
+	<div class="settingSection">
+		<div class="prefHead">[% "PLUGIN_SCREENSAVER_SUPERDATETIME_CFB" | string | upper %]</div>
+
+		<div class="prefDesc">[% "PLUGIN_SCREENSAVER_SUPERDATETIME_CFBALLCONF_DESC" | string %]</div>
+
+		<select name="cfballconf">
+			[% FOREACH conf = cfballconf %]
+				<option value="[% conf.key %]"[% IF prefs.cfballconf == conf.key %]selected[% END %]>[% conf.value %]</option>
+			[% END %]
+		</select>
+
+		<div class="prefDesc">[% "PLUGIN_SCREENSAVER_SUPERDATETIME_CFB_DESC" | string %]</div>
+		<input type="hidden" name="cfb" value="">
+		[% FOREACH selTeam = prefs.cfb %]
+			<input type="text" class="stdedit" name="cfb" id="cfb" value="[% selTeam %]" size="40"><BR>
+		[% END %]
+		<input type="text" class="stdedit" name="cfb" id="cfb" %]" size="40">
+	</div>
+
+	<div class="settingSection">
+		<div class="prefHead">[% "PLUGIN_SCREENSAVER_SUPERDATETIME_CBB" | string | upper %]</div>
+
+		<div class="prefDesc">[% "PLUGIN_SCREENSAVER_SUPERDATETIME_CBBALLCONF_DESC" | string %]</div>
+
+		<select name="cbballconf">
+			[% FOREACH conf = cbballconf %]
+				<option value="[% conf.key %]"[% IF prefs.cbballconf == conf.key %]selected[% END %]>[% conf.value %]</option>
+			[% END %]
+		</select>
+
+		<div class="prefDesc">[% "PLUGIN_SCREENSAVER_SUPERDATETIME_CBB_DESC" | string %]</div>
+		<input type="hidden" name="cbb" value="">
+		[% FOREACH selTeam = prefs.cbb %]
+			<input type="text" class="stdedit" name="cbb" id="cbb" value="[% selTeam %]" size="40"><BR>
+		[% END %]
+		<input type="text" class="stdedit" name="cbb" id="cbb" %]" size="40">
+	</div>
+
+	<div class="settingSection">
+		<div class="prefHead">[% "PLUGIN_SCREENSAVER_SUPERDATETIME_OFFSET" | string | upper %]</div>
+		<div class="prefDesc">[% "PLUGIN_SCREENSAVER_SUPERDATETIME_OFFSET_DESC" | string %]</div>
+
+		<select name="offset">
+			<option value="18" [% IF prefs.offset == "18" %]selected[% END %]>+18:00</option>
+			<option value="17" [% IF prefs.offset == "17" %]selected[% END %]>+17:00 Fiji</option>
+			<option value="16" [% IF prefs.offset == "16" %]selected[% END %]>+16:00</option>
+			<option value="15" [% IF prefs.offset == "15" %]selected[% END %]>+15:00 Melbourne,Sydney</option>
+			<option value="14" [% IF prefs.offset == "14" %]selected[% END %]>+14:00 Tokyo</option>
+			<option value="13" [% IF prefs.offset == "13" %]selected[% END %]>+13:00</option>
+			<option value="12" [% IF prefs.offset == "12" %]selected[% END %]>+12:00 Bangkok</option>
+			<option value="11" [% IF prefs.offset == "11" %]selected[% END %]>+11:00</option>
+			<option value="10" [% IF prefs.offset == "10" %]selected[% END %]>+10:00</option>
+			<option value="09" [% IF prefs.offset == "09" %]selected[% END %]>+09:00</option>
+			<option value="08" [% IF prefs.offset == "08" %]selected[% END %]>+08:00 Baghdad,Moscow</option>
+			<option value="07" [% IF prefs.offset == "07" %]selected[% END %]>+07:00 Athens</option>
+			<option value="06" [% IF prefs.offset == "06" %]selected[% END %]>+06:00 Amsterdam,Berlin,Rome,Prague,Madrid,Paris</option>
+			<option value="05" [% IF prefs.offset == "05" %]selected[% END %]>+05:00 Dublin,London</option>
+			<option value="04" [% IF prefs.offset == "04" %]selected[% END %]>+04:00</option>
+			<option value="03" [% IF prefs.offset == "03" %]selected[% END %]>+03:00</option>
+			<option value="02" [% IF prefs.offset == "02" %]selected[% END %]>+02:00</option>
+			<option value="01" [% IF prefs.offset == "01" %]selected[% END %]>+01:00</option>
+			<option value="00" [% IF prefs.offset == "00" %]selected[% END %]>+00:00 Eastern</option>
+			<option value="-01" [% IF prefs.offset == "-01" %]selected[% END %]>-01:00 Central</option>
+			<option value="-02" [% IF prefs.offset == "-02" %]selected[% END %]>-02:00 Mountain</option>
+			<option value="-03" [% IF prefs.offset == "-03" %]selected[% END %]>-03:00 Pacific</option>
+			<option value="-04" [% IF prefs.offset == "-04" %]selected[% END %]>-04:00 Alaska</option>
+			<option value="-05" [% IF prefs.offset == "-05" %]selected[% END %]>-05:00 Hawaii</option>
+			<option value="-06" [% IF prefs.offset == "-06" %]selected[% END %]>-06:00</option>
+			<option value="-07" [% IF prefs.offset == "-07" %]selected[% END %]>-07:00</option>
+			<option value="-08" [% IF prefs.offset == "-08" %]selected[% END %]>-08:00</option>
+			<option value="-09" [% IF prefs.offset == "-09" %]selected[% END %]>-09:00</option>
+			<option value="-10" [% IF prefs.offset == "-10" %]selected[% END %]>-10:00</option>
+		</select>
+	</div>
+
+	<div class="settingSection">
+		<div class="prefHead">[% "PLUGIN_SCREENSAVER_SUPERDATETIME_TIME" | string | upper %]</div>
+		<div class="prefDesc">[% "PLUGIN_SCREENSAVER_SUPERDATETIME_TIME_DESC" | string %]</div>
+
+		<table>
+			<tr><td>[% "PLUGIN_SCREENSAVER_SUPERDATETIME_ATIME_CHOOSE" | string %]</td><td><input type="text" class="stdedit" name="atime" id="atime" value="[% prefs.atime %]" size="2"></td></tr>
+			<tr><td>[% "PLUGIN_SCREENSAVER_SUPERDATETIME_TIME_CHOOSE" | string %]</td><td><input type="text" class="stdedit" name="time" id="time" value="[% prefs.time %]" size="2"></td></tr>
+		</table>
+	</div>
+
+	<div class="settingSection">
+		<div class="prefHead">[% "PLUGIN_SCREENSAVER_SUPERDATETIME_SCORE" | string | upper %]</div>
+		<div class="prefDesc">[% "PLUGIN_SCREENSAVER_SUPERDATETIME_SCORE_DESC" | string %]</div>
+		<table>
+			<tr><td>[% "PLUGIN_SCREENSAVER_SUPERDATETIME_ASCORE_CHOOSE" | string %]</td><td><input type="text" class="stdedit" name="ascore" id="ascore" value="[% prefs.ascore %]" size="2"></td></tr>
+			<tr><td>[% "PLUGIN_SCREENSAVER_SUPERDATETIME_SCORE_CHOOSE" | string %]</td><td><input type="text" class="stdedit" name="score" id="score" value="[% prefs.score %]" size="2"></td></tr>
+		</table>
+	</div>
+
+	<div class="settingSection">
+		<div class="prefHead">[% "PLUGIN_SCREENSAVER_SUPERDATETIME_TEAMLOGOS" | string | upper %]</div>
+		<div class="prefDesc">[% "PLUGIN_SCREENSAVER_SUPERDATETIME_TEAMLOGOS_DESC" | string %]</div>
+
+		<select name="teamlogos">
+			<option value="0" [% IF prefs.teamlogos == "0" %]selected[% END %]>Text Only - No Logo</option>
+			<option value="1" [% IF prefs.teamlogos == "1" %]selected[% END %]>Logo Only - No Text</option>
+			<option value="2" [% IF prefs.teamlogos == "2" %]selected[% END %]>Logo and Text</option>
+		</select>
+	</div>
+	<hr>
+	<div class="settingSection">
+		<div class="prefHead">[% "PLUGIN_SCREENSAVER_SUPERDATETIME_ADVANCED" | string | upper %]</div>
+		<div class="prefDesc">[% "PLUGIN_SCREENSAVER_SUPERDATETIME_ADVANCED_DESC" | string %]</div>
+		<BR>
+		<div class="prefHead">[% "PLUGIN_SCREENSAVER_SUPERDATETIME_DRWEACHDLY" | string | upper %]</div>
+		<div class="prefDesc">[% "PLUGIN_SCREENSAVER_SUPERDATETIME_DRWEACHDLY_DESC" | string %]</div>
+		<input type="text" class="stdedit" name="drawEachDelay" id="drawEachDelay" value="[% prefs.drawEachDelay %]" size="2">
+	</div>
+
+[% PROCESS settings/footer.html %]

@@ -1,0 +1,245 @@
+[% PROCESS settings/header.html %]
+<script type="text/javascript">
+addRowInnerHTML = function(tblId)
+{
+	var tblBody = document.getElementById(tblId).tBodies[0];
+	var newRow = tblBody.insertRow(-1);
+	var newCell0 = newRow.insertCell(0);
+	newCell0.innerHTML = '\
+	<div class="settingSection">\
+		<table>\
+		<tr><th>Period</th><th>Icon</th><th colspan=2><center>3-Line</center></th><th>Line 1 & 2</th></tr>\
+		<tr>\
+		<td><select name="v1period">\
+			  <option value="-1">C</option>\
+			  <option value="0">1</option>\
+			  <option value="1">2</option>\
+			  <option value="2">3</option>\
+		    </select>\
+		</td>\
+		<td><select name="show1icon">\
+			  <option value="0">Off</option>\
+			  <option value="1">On</option>\
+		    </select>\
+		</td>\
+		<td><select name="show13line">\
+			  <option value="0">Off</option>\
+			  <option value="1">On</option>\
+		    </select></td>\
+		<td>\
+		    <input type="text" class="stdedit" name="v3line1t" id="v3line1t" value="" size="10"><BR>\
+		    <input type="text" class="stdedit" name="v3line1m" id="v3line1m" value="" size="10"><BR>\
+		    <input type="text" class="stdedit" name="v3line1b" id="v3line1b" value="" size="10">\
+		</td>\
+		<td>\
+		<input type="text" class="stdedit" name="weatherformat1t" id="weatherformat1t" value="" size="30"><BR>\
+		<input type="text" class="stdedit" name="weatherformat1b" id="weatherformat1b" value="" size="30">\
+		</td>\
+		</tr>\
+		</table>\
+		[% "PLUGIN_SCREENSAVER_SUPERDATETIME_WEATHERFORMAT2T_CHOOSE" | string %]&nbsp;<input type="text" class="stdedit" name="weatherformat2t" id="weatherformat2t" value="" size="40"><BR>\
+		[% "PLUGIN_SCREENSAVER_SUPERDATETIME_WEATHERFORMAT2B_CHOOSE" | string %]&nbsp;<input type="text" class="stdedit" name="weatherformat2b" id="weatherformat2b" value="" size="40"><BR>\
+	</div>\
+	';
+	var newCell1 = newRow.insertCell(1);
+	newCell1.innerHTML = '<input type="button" value="Remove" onclick="deleteRow(this)">';
+}
+
+deleteRow = function(r)
+{
+  var i=r.parentNode.parentNode.rowIndex
+  document.getElementById('tblInnerHTML').deleteRow(i)
+}
+
+</script>
+
+
+	<div class="settingSection">
+		<div class="prefHead">[% "SETUP_GROUP_SUPERDATETIME" | string | upper %]</div>
+		<div class="prefDesc">[% "SETUP_GROUP_SUPERDATETIME_DESC" | string %]</div>
+	</div>
+	<div class="settingSection">
+		<div class="prefHead">[% "PLUGIN_SCREENSAVER_SUPERDATETIME_SCROLL" | string | upper %]</div>
+		<div class="prefDesc">[% "PLUGIN_SCREENSAVER_SUPERDATETIME_SCROLL_DESC" | string %]</div>
+				<select name="pref_scroll">
+					<option value="Slide" [% IF prefs.pref_scroll == "Slide" %]selected[% END %]>Slide</option>
+					<option value="Basic" [% IF prefs.pref_scroll == "Basic" %]selected[% END %]>Basic</option>
+					<option value="Ticker" [% IF prefs.pref_scroll == "Ticker" %]selected[% END %]>Ticker</option>
+				</select>
+	</div>
+	<div class="settingSection">
+		<div class="prefHead">[% "PLUGIN_SCREENSAVER_SUPERDATETIME_FDAYS" | string | upper %]</div>
+		<div class="prefDesc">[% "PLUGIN_SCREENSAVER_SUPERDATETIME_FDAYS_DESC" | string %]</div>
+				<select name="pref_fdays">
+					<option value="0" [% IF prefs.pref_fdays == "0" %]selected[% END %]>0</option>
+					<option value="1" [% IF prefs.pref_fdays == "1" %]selected[% END %]>1</option>
+					<option value="2" [% IF prefs.pref_fdays == "2" %]selected[% END %]>2</option>
+					<option value="3" [% IF prefs.pref_fdays == "3" %]selected[% END %]>3</option>
+					<option value="4" [% IF prefs.pref_fdays == "4" %]selected[% END %]>4</option>
+					<option value="5" [% IF prefs.pref_fdays == "5" %]selected[% END %]>5</option>
+					<option value="6" [% IF prefs.pref_fdays == "6" %]selected[% END %]>6</option>
+					<option value="7" [% IF prefs.pref_fdays == "7" %]selected[% END %]>7</option>
+					<option value="8" [% IF prefs.pref_fdays == "8" %]selected[% END %]>8</option>
+					<option value="9" [% IF prefs.pref_fdays == "9" %]selected[% END %]>9</option>
+					<option value="10" [% IF prefs.pref_fdays == "10" %]selected[% END %]>10</option>
+					<option value="11" [% IF prefs.pref_fdays == "11" %]selected[% END %]>11</option>
+					<option value="12" [% IF prefs.pref_fdays == "12" %]selected[% END %]>12</option>
+				</select>
+	</div>
+
+	<input type="hidden" name="show1icon" value="deleteme">
+	<input type="hidden" name="show13line" value="deleteme">
+    <input type="hidden" name="v3line1t" value="deleteme">
+    <input type="hidden" name="v3line1m" value="deleteme">
+    <input type="hidden" name="v3line1b" value="deleteme">
+	<input type="hidden" name="v1period" value="deleteme">
+	<input type="hidden" name="weatherformat1t" value="deleteme">
+	<input type="hidden" name="weatherformat1b" value="deleteme">
+	<input type="hidden" name="weatherformat2t" value="deleteme">
+	<input type="hidden" name="weatherformat2b" value="deleteme">
+
+	<input type="hidden" name="v1period" value="-1">
+	<div class="settingSection">
+		<div class="prefHead">[% "PLUGIN_SCREENSAVER_SUPERDATETIME_WEATHERFORMAT1T" | string | upper %]</div>
+		<div class="prefDesc">[% "PLUGIN_SCREENSAVER_SUPERDATETIME_WEATHERFORMAT1T_DESC" | string %]</div>
+		<table>
+		<TR><TH colspan=2>Default Mode:</TH></TR>
+		<tr><th>Icon</th><th colspan=2><center>3-Line</center></th><th>Line 1 & 2</th></tr>
+		<tr>
+
+		<td><select name="show1icon">
+			  <option value="0" [% IF prefs.show1icon.0 == "0" %]selected[% END %]>Off</option>
+			  <option value="1" [% IF prefs.show1icon.0 == "1" %]selected[% END %]>On</option>
+		    </select>
+		</td>
+		<td><select name="show13line">
+			  <option value="0" [% IF prefs.show13line.0 == "0" %]selected[% END %]>Off</option>
+			  <option value="1" [% IF prefs.show13line.0 == "1" %]selected[% END %]>On</option>
+		    </select></td><td><input type="text" class="stdedit" name="v3line1t" id="v3line1t" value="[% prefs.v3line1t.0 %]" size="10"><BR>
+		    <input type="text" class="stdedit" name="v3line1m" id="v3line1m" value="[% prefs.v3line1m.0 %]" size="10"><BR>
+		    <input type="text" class="stdedit" name="v3line1b" id="v3line1b" value="[% prefs.v3line1b.0 %]" size="10">
+		</td>
+		<td><input type="text" class="stdedit" name="weatherformat1t" id="weatherformat1t" value="[% prefs.weatherformat1t.0 %]" size="30"><BR>
+		    <input type="text" class="stdedit" name="weatherformat1b" id="weatherformat1b" value="[% prefs.weatherformat1b.0 %]" size="30">
+		</td>
+
+		</tr>
+		</table>
+
+		[% "PLUGIN_SCREENSAVER_SUPERDATETIME_WEATHERFORMAT2T_CHOOSE" | string %]&nbsp;<input type="text" class="stdedit" name="weatherformat2t" id="weatherformat2t" value="[% prefs.weatherformat2t.0 %]" size="40"><BR>
+		[% "PLUGIN_SCREENSAVER_SUPERDATETIME_WEATHERFORMAT2B_CHOOSE" | string %]&nbsp;<input type="text" class="stdedit" name="weatherformat2b" id="weatherformat2b" value="[% prefs.weatherformat2b.0 %]" size="40"><BR>
+	</div>
+
+	<input type="hidden" name="show1icon" value="[% prefs.show1icon.1 %]">
+	<input type="hidden" name="show13line" value="[% prefs.show13line.1 %]">
+    <input type="hidden" name="v3line1t" value="[% prefs.v3line1t.1 %]">
+    <input type="hidden" name="v3line1m" value="[% prefs.v3line1m.1 %]">
+    <input type="hidden" name="v3line1b" value="[% prefs.v3line1b.1 %]">
+	<input type="hidden" name="v1period" value="[% prefs.v1period.1 %]">
+	<input type="hidden" name="weatherformat1t" value="[% prefs.weatherformat1t.1 %]">
+	<input type="hidden" name="weatherformat1b" value="[% prefs.weatherformat1b.1 %]">
+	<input type="hidden" name="weatherformat2t" value="[% prefs.weatherformat2t.1 %]">
+	<input type="hidden" name="weatherformat2b" value="[% prefs.weatherformat2b.1 %]">
+
+	<table id="tblInnerHTML">
+	<TR><TH>Custom Modes:</TH></TR>
+	[% FOREACH prefs.weatherformat1t %]
+		[% index = loop.index %]
+		[% IF index > 1 %]
+		<TR><TD>
+		<div class="settingSection">
+			<table>
+			<tr><th>Period</th><th>Icon</th><th colspan=2><center>3-Line</center></th><th>Line 1 & 2</th></tr>
+			<tr>
+			<td><select name="v1period">
+				  <option value="-1" [% IF prefs.v1period.$index == "-1" %]selected[% END %]>C</option>
+				  <option value="0" [% IF prefs.v1period.$index == "0" %]selected[% END %]>1</option>
+				  <option value="1" [% IF prefs.v1period.$index == "1" %]selected[% END %]>2</option>
+				  <option value="2" [% IF prefs.v1period.$index == "2" %]selected[% END %]>3</option>
+			    </select>
+			</td>
+			<td><select name="show1icon">
+				  <option value="0" [% IF prefs.show1icon.$index == "0" %]selected[% END %]>Off</option>
+				  <option value="1" [% IF prefs.show1icon.$index == "1" %]selected[% END %]>On</option>
+			    </select>
+			</td>
+			<td><select name="show13line">
+				  <option value="0" [% IF prefs.show13line.$index == "0" %]selected[% END %]>Off</option>
+				  <option value="1" [% IF prefs.show13line.$index == "1" %]selected[% END %]>On</option>
+			    </select></td>
+			    <td>
+			    <input type="text" class="stdedit" name="v3line1t" id="v3line1t" value="[% prefs.v3line1t.$index %]" size="10"><BR>
+			    <input type="text" class="stdedit" name="v3line1m" id="v3line1m" value="[% prefs.v3line1m.$index %]" size="10"><BR>
+			    <input type="text" class="stdedit" name="v3line1b" id="v3line1b" value="[% prefs.v3line1b.$index %]" size="10">
+			</td>
+
+			<td>
+			<input type="text" class="stdedit" name="weatherformat1t" id="weatherformat1t" value="[% prefs.weatherformat1t.$index %]" size="30"><BR>
+			<input type="text" class="stdedit" name="weatherformat1b" id="weatherformat1b" value="[% prefs.weatherformat1b.$index %]" size="30">
+			</td>
+			</tr>
+			</table>
+			[% "PLUGIN_SCREENSAVER_SUPERDATETIME_WEATHERFORMAT2T_CHOOSE" | string %]&nbsp;<input type="text" class="stdedit" name="weatherformat2t" id="weatherformat2t" value="[% prefs.weatherformat2t.$index %]" size="40"><BR>
+			[% "PLUGIN_SCREENSAVER_SUPERDATETIME_WEATHERFORMAT2B_CHOOSE" | string %]&nbsp;<input type="text" class="stdedit" name="weatherformat2b" id="weatherformat2b" value="[% prefs.weatherformat2b.$index %]" size="40"><BR>
+		</div>
+		</TD><td><input type="button" value="Remove" onclick="deleteRow(this)"></td></TR>
+		[% END %]
+	[% END %]
+	</TABLE>
+	<script type="text/javascript">
+	function addRowInnerHTML(tblId)
+	{
+		var tblBody = document.getElementById(tblId).tBodies[0];
+		var newRow = tblBody.insertRow(-1);
+		var newCell0 = newRow.insertCell(0);
+		newCell0.innerHTML = '\
+		<div class="settingSection">\
+			<table>\
+			<tr><th>Period</th><th>Icon</th><th colspan=2><center>3-Line</center></th><th>Line 1 & 2</th></tr>\
+			<tr>\
+			<td><select name="v1period">\
+				  <option value="-1">C</option>\
+				  <option value="0">1</option>\
+				  <option value="1">2</option>\
+				  <option value="2">3</option>\
+			    </select>\
+			</td>\
+			<td><select name="show1icon">\
+				  <option value="0">Off</option>\
+				  <option value="1">On</option>\
+			    </select>\
+			</td>\
+			<td><select name="show13line">\
+				  <option value="0">Off</option>\
+				  <option value="1">On</option>\
+			    </select></td>\
+			<td>\
+			    <input type="text" class="stdedit" name="v3line1t" id="v3line1t" value="" size="10"><BR>\
+			    <input type="text" class="stdedit" name="v3line1m" id="v3line1m" value="" size="10"><BR>\
+			    <input type="text" class="stdedit" name="v3line1b" id="v3line1b" value="" size="10">\
+			</td>\
+			<td>\
+			<input type="text" class="stdedit" name="weatherformat1t" id="weatherformat1t" value="" size="30"><BR>\
+			<input type="text" class="stdedit" name="weatherformat1b" id="weatherformat1b" value="" size="30">\
+			</td>\
+			</tr>\
+			</table>\
+			[% "PLUGIN_SCREENSAVER_SUPERDATETIME_WEATHERFORMAT2T_CHOOSE" | string %]&nbsp;<input type="text" class="stdedit" name="weatherformat2t" id="weatherformat2t" value="" size="40"><BR>\
+			[% "PLUGIN_SCREENSAVER_SUPERDATETIME_WEATHERFORMAT2B_CHOOSE" | string %]&nbsp;<input type="text" class="stdedit" name="weatherformat2b" id="weatherformat2b" value="" size="40"><BR>\
+		</div>\
+		';
+		var newCell1 = newRow.insertCell(1);
+		newCell1.innerHTML = '<input type="button" value="Remove" onclick="deleteRow(this)">';
+
+	}
+
+	function deleteRow(r)
+	{
+	  var i=r.parentNode.parentNode.rowIndex
+	  document.getElementById('tblInnerHTML').deleteRow(i)
+	}
+	</script>
+
+	<input type="button" value="Add Custom Mode" onclick="addRowInnerHTML('tblInnerHTML');" />
+
+[% PROCESS settings/footer.html %]
