@@ -18,10 +18,12 @@
 # The graphical weather icons and the code to support them are based on the WeatherTime screensaver written by Martin Rehfeld.
 #
 # VERSION HISTORY
+# 5.9.51 03/17/19   Added moonphase infromation.  Taken from old WU version. Thanks tcutting.
+#
 # 5.9.50 03/16/19   Adjusted 15 day forecast to start with the current day.
 #
 # 5.9.49 02/18/19   Fixed certain NCAA team ICONs that were not displaying correctly. 
-#					Added handling for Postponed College Basketball games.					
+#					Added handling for Postponed College Basketball games.
 #					Cleaned up "Extras" display on Touch/Radio/Controller.
 #
 # 5.9.48 11/27/18   NCAA updated url for college football. 
@@ -213,7 +215,7 @@ my $log = Slim::Utils::Log->addLogCategory({
 });
 
 use vars qw($VERSION);
-$VERSION = substr(q$Revision: 5.9.50 $,10);
+$VERSION = substr(q$Revision: 5.9.51 $,10);
 
 $Plugins::SuperDateTime::Plugin::apiVersion = 2.0;
 
@@ -2827,7 +2829,8 @@ sub replaceMacros {
         s/%j/$wetData{'wu_windspeed_mh'}/;
         s/%J/$wetData{'wu_windspeed_kh'}/;
         s/%k/$wetData{'wu_windspeed_kth'}/;
-        s/%K/$wetData{'wu_windspeed_ms'}/;      
+        s/%K/$wetData{'wu_windspeed_ms'}/;
+
     }
 
     return $string;
@@ -2848,6 +2851,9 @@ sub replaceMacrosPer {
         s/%g/$wetData{$location}{'record_year'}/;
         s/%s/$wetData{$location}{'sunrise'}/;
         s/%S/$wetData{$location}{'sunset'}/;
+        s/%G/$wetData{$location}{'moonPhrase'}/;
+        s/%n/$wetData{$location}{'moonrise'}/;
+        s/%N/$wetData{$location}{'moonset'}/;
 
         s/%z/$wetData{$location}{'forecastType'} $wetData{$location}{'forecastTempF'}°/;
         s/%Z/$wetData{$location}{'forecastType'} $wetData{$location}{'forecastTempC'}°/;
@@ -3143,7 +3149,7 @@ sub gotWeatherToday {  #Weather data for today was received
                 push(@WETdisplayItems2temp, @$dayNarrative[$loopcnt-1]);
             }
         }
-        $loopcnt++
+        $loopcnt++;
     }
     
     # Sunrise sunset for Today.  Store in both current[-1] and today/tonight[0] periods. 
@@ -3187,6 +3193,60 @@ sub gotWeatherToday {  #Weather data for today was received
         $wetData{1}{'sunset'} = $ss;
         $wetData{2}{'sunset'} = $ss;
     }
+
+    # Moonrise moonset for Today.  Store in both current[-1] and today/tonight[0] periods. 
+    my $moonrise = @$moonrises[0];
+    my $timepos5 = index($moonrise, ":");
+    $timepos5 = $timepos5-2;
+    my $mr = substr($moonrise, $timepos5, 5);
+    $wetData{-1}{'moonrise'} = $mr;
+    $wetData{0}{'moonrise'} = $mr;
+
+    my $moonset = @$moonsets[0];
+    my $timepos6 = index($moonset, ":");
+    $timepos6 = $timepos6-2;
+    my $ms = substr($moonset, $timepos6, 5);
+    $wetData{-1}{'moonset'} = $ms;
+    $wetData{0}{'moonset'} = $ms;
+
+    my $moonphrase = @$moonPhrases[0];
+    $wetData{-1}{'moonPhrase'} = $moonphrase;
+    $wetData{0}{'moonPhrase'} = $moonphrase;
+
+    # Calculate Moon Age  https://www.subsystems.us/uploads/9/8/9/4/98948044/moonphase.pdf
+    # First calulate julian date
+    my ($sec,$min,$hour,$mday,$mon,$year,$wday,$yday,$isdst) = localtime(time);
+    my $Y = $year + 1900;
+    my $M = $mon + 1;
+    my $D = $mday;
+
+    if ( ($M == 1) || ($M == 2)){
+        $Y = $Y - 1;
+        $M = $M + 12;
+    }
+
+    my $A = int($Y/100);
+    my $B = int($A/4);
+    my $C = 2-$A+$B;
+    my $E = int(365.25 * ($Y+4716));
+    my $F = int(30.6001 * ($M+1));
+    my $JulianDate = $C+$D+$E+$F-1524.5;
+
+    # Now Calulate number of days/new moons since a known New Moon Jan 06,2000
+    my $DaysSinceNewMoon = $JulianDate - 2451549.5;
+    my $New_Moons = $DaysSinceNewMoon / 29.53;
+
+    #Calculate the number of days since last new moon.
+    my $frac = ($New_Moons - int($New_Moons));
+    my $MoonAge = int($frac * 29.53);
+
+    #Images are for northern hemisphere, map images for southern hemisphere.
+    if ( int($lat) < 0 ){
+        $MoonAge = 30 - $MoonAge;
+    }
+    my $MoonAgestr = sprintf "%d", $MoonAge;
+    $log->debug('Moon age: ' . $MoonAgestr);
+    $wetData{'moonphaseURL'} ='/plugins/SuperDateTime/html/images/moon_'. $MoonAgestr . '.png';
 
 #   10 day stuff moved from got10day
     my %mons=("01"=>"Jan","02"=>"Feb","03"=>"Mar","04"=>"Apr","05"=>"May","06"=>"Jun","07"=>"Jul","08"=>"Aug","09"=>"Sep","10"=>"Oct","11"=>"Nov","12"=>"Dec");

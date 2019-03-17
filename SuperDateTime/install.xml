@@ -3,11 +3,11 @@
 	<id>8F9E67E0-A278-11DB-8AB9-0800200C9A67</id>
         <name>PLUGIN_SCREENSAVER_SUPERDATETIME</name>
         <module>Plugins::SuperDateTime::Plugin</module>
-        <version>5.9.50</version>
+        <version>5.9.51</version>
         <description>SETUP_GROUP_SUPERDATETIME_DESC</description>
         <creator>G. Brown, D. Grossman</creator>
 	<defaultState>enabled</defaultState>       
-        <homepageURL>https://sourceforge.net/projects/sdt-weather-com/</homepageURL>
+        <homepageURL>https://github.com/paul-1/SuperDateTime</homepageURL>
 	<optionsURL>plugins/SuperDateTime/settings/basic.html</optionsURL>        
 	<type>2</type><!-- type=extension -->
         <targetApplication>
