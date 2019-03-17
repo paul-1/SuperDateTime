@@ -18,10 +18,12 @@
 # The graphical weather icons and the code to support them are based on the WeatherTime screensaver written by Martin Rehfeld.
 #
 # VERSION HISTORY
+# 5.9.51 03/17/19   Added moonphase infromation.  Taken from old WU version. Thanks tcutting.
+#
 # 5.9.50 03/16/19   Adjusted 15 day forecast to start with the current day.
 #
 # 5.9.49 02/18/19   Fixed certain NCAA team ICONs that were not displaying correctly. 
-#					Added handling for Postponed College Basketball games.					
+#					Added handling for Postponed College Basketball games.
 #					Cleaned up "Extras" display on Touch/Radio/Controller.
 #
 # 5.9.48 11/27/18   NCAA updated url for college football. 
@@ -203,6 +205,7 @@ use HTML::TreeBuilder;
 use Time::Local; 
 use HTML::Entities qw(decode_entities);
 use JSON::XS::VersionOneAndTwo;
+use Time::localtime;
 
 my $prefs = preferences('plugin.superdatetime');
 
@@ -213,7 +216,7 @@ my $log = Slim::Utils::Log->addLogCategory({
 });
 
 use vars qw($VERSION);
-$VERSION = substr(q$Revision: 5.9.50 $,10);
+$VERSION = substr(q$Revision: 5.9.51 $,10);
 
 $Plugins::SuperDateTime::Plugin::apiVersion = 2.0;
 
@@ -391,7 +394,7 @@ my $Gclient;
 #
 my %Codepage = ( ' ' =>  0, '1' =>  1, '2' =>  2, '3' =>  3, '4' =>  4,
                  '5' =>  5, '6' =>  6, '7' =>  7, '8' =>  8, '9' =>  9,
-                 '0' => 10, '-' => 11, '°' => 12, '.' => 13, '%' => 14,
+                 '0' => 10, '-' => 11, 'ï¿½' => 12, '.' => 13, '%' => 14,
                  'A' => 15, 'B' => 16, 'C' => 17, 'D' => 18, 'E' => 19,
                  'F' => 20, 'G' => 21, 'H' => 22, 'I' => 23, 'J' => 24,
                  'K' => 25, 'L' => 26, 'M' => 27, 'N' => 28, 'O' => 29,
@@ -2238,7 +2241,7 @@ sub sdt10day {
         push @menu, {
             'icon-id' => 'plugins/SuperDateTime/html/images/'.$wetData{'d'.$i}{'forecastIcon'}.'.png',
             text => $wetData{'d'.$i}{'day'}.' '.$wetData{'d'.$i}{'date'}.
-                $wetData{'d'.$i}{'condition'}.' '.$wetData{'d'.$i}{'high'.$ForC} . '°/' .$wetData{'d'.$i}{'low'.$ForC} . '° Precip. ' . $wetData{'d'.$i}{'precip'}.'%',
+                $wetData{'d'.$i}{'condition'}.' '.$wetData{'d'.$i}{'high'.$ForC} . 'ï¿½/' .$wetData{'d'.$i}{'low'.$ForC} . 'ï¿½ Precip. ' . $wetData{'d'.$i}{'precip'}.'%',
         };
 
         $i++;
@@ -2377,7 +2380,7 @@ sub sdtForecast {
         push @menu, {
             'icon-id' => 'plugins/SuperDateTime/html/images/'.$wetData{$i}{'forecastIcon'}.'.png',
             text => $wetData{$i}{'forecastTOD'}.": ".$wetData{$i}{'skyCondition'}."\n".
-                $wetData{$i}{'forecastType'} .' '. $wetData{$i}{'forecastTemp'.$ForC} . '° Precip. '. $wetData{$i}{'forecastPrec'}.'%',
+                $wetData{$i}{'forecastType'} .' '. $wetData{$i}{'forecastTemp'.$ForC} . 'ï¿½ Precip. '. $wetData{$i}{'forecastPrec'}.'%',
                 actions  => {
                       go  => {
                           player => 0,
@@ -2458,8 +2461,8 @@ sub sdtCurrent {
     
     push @menu, {
         'icon-id' => 'plugins/SuperDateTime/html/images/'.$wetData{-1}{'forecastIcon'}.'.png',
-              text => $wetData{-1}{'skyCondition'}.' '.$wetData{'temperature'.$ForC}.'° ('.$wetData{'feelslike'.$ForC}.'°) '. $wetData{'windspeed_'.$WindUnit}."\n".
-                      $wetData{-1}{'forecastType'}.' '. $wetData{-1}{'forecastTemp'.$ForC}.'° Precip. '.$wetData{-1}{'forecastPrec'}.'%',
+              text => $wetData{-1}{'skyCondition'}.' '.$wetData{'temperature'.$ForC}.'ï¿½ ('.$wetData{'feelslike'.$ForC}.'ï¿½) '. $wetData{'windspeed_'.$WindUnit}."\n".
+                      $wetData{-1}{'forecastType'}.' '. $wetData{-1}{'forecastTemp'.$ForC}.'ï¿½ Precip. '.$wetData{-1}{'forecastPrec'}.'%',
          actions  => {
            go  => {
                player => 0,
@@ -2473,7 +2476,7 @@ sub sdtCurrent {
     push @menu, {
         'icon-id' => 'plugins/SuperDateTime/html/images/blank.png',
               text => 'Pressure: '.$wetData{'pressureIN'}.' '.$wetData{'pressureT'}."\n".
-                      'Humidity: '.$wetData{'humidity'}.'° Dewpoint: '.$wetData{'dewpointF'}.'°',
+                      'Humidity: '.$wetData{'humidity'}.'ï¿½ Dewpoint: '.$wetData{'dewpointF'}.'ï¿½',
     };
     push @menu, {
         'icon-id' => 'plugins/SuperDateTime/html/images/blank.png',
@@ -2796,15 +2799,15 @@ sub replaceMacros {
         s/%2/$date/;
         s/%!2/$sdate/;
         
-        s/%t/$wetData{'temperatureF'}°/;
-        s/%T/$wetData{'temperatureC'}°/;
+        s/%t/$wetData{'temperatureF'}ï¿½/;
+        s/%T/$wetData{'temperatureC'}ï¿½/;
         s/%h/$wetData{'humidity'}/;
         s/%p/$wetData{'pressureIN'}$wetData{'pressureT'}/;
         s/%P/$wetData{'pressureMB'}$wetData{'pressureT'}/;
-        s/%d/$wetData{'dewpointF'}°/;
-        s/%D/$wetData{'dewpointC'}°/;
-        s/%f/$wetData{'feelslikeF'}°/;
-        s/%F/$wetData{'feelslikeC'}°/;
+        s/%d/$wetData{'dewpointF'}ï¿½/;
+        s/%D/$wetData{'dewpointC'}ï¿½/;
+        s/%f/$wetData{'feelslikeF'}ï¿½/;
+        s/%F/$wetData{'feelslikeC'}ï¿½/;
         s/%w/$wetData{'windspeed_mh'}/;
         s/%W/$wetData{'windspeed_kh'}/;
         s/%q/$wetData{'windspeed_kth'}/;
@@ -2815,19 +2818,20 @@ sub replaceMacros {
         s/%B/$wetData{'snow'}/;
 
         #Wunderground
-        s/%e/$wetData{'wu_temperatureF'}°/;
-        s/%r/$wetData{'wu_temperatureFr'}°/;
-        s/%E/$wetData{'wu_temperatureC'}°/;
-        s/%R/$wetData{'wu_temperatureCr'}°/;
+        s/%e/$wetData{'wu_temperatureF'}ï¿½/;
+        s/%r/$wetData{'wu_temperatureFr'}ï¿½/;
+        s/%E/$wetData{'wu_temperatureC'}ï¿½/;
+        s/%R/$wetData{'wu_temperatureCr'}ï¿½/;
         s/%H/$wetData{'wu_humidity'}/;
         s/%l/$wetData{'wu_pressureIN'}/;
         s/%L/$wetData{'wu_pressureMB'}/;
-        s/%m/$wetData{'wu_dewpointF'}°/;
-        s/%M/$wetData{'wu_dewpointC'}°/;
+        s/%m/$wetData{'wu_dewpointF'}ï¿½/;
+        s/%M/$wetData{'wu_dewpointC'}ï¿½/;
         s/%j/$wetData{'wu_windspeed_mh'}/;
         s/%J/$wetData{'wu_windspeed_kh'}/;
         s/%k/$wetData{'wu_windspeed_kth'}/;
-        s/%K/$wetData{'wu_windspeed_ms'}/;      
+        s/%K/$wetData{'wu_windspeed_ms'}/;
+
     }
 
     return $string;
@@ -2841,16 +2845,19 @@ sub replaceMacrosPer {
     $string = replaceMacros($string, $client);
 
     for ($string) {
-        s/%a/$wetData{$location}{'average_F'}°/;
-        s/%A/$wetData{$location}{'average_C'}°/;
-        s/%c/$wetData{$location}{'record_F'}°/;
-        s/%C/$wetData{$location}{'record_C'}°/;
+        s/%a/$wetData{$location}{'average_F'}ï¿½/;
+        s/%A/$wetData{$location}{'average_C'}ï¿½/;
+        s/%c/$wetData{$location}{'record_F'}ï¿½/;
+        s/%C/$wetData{$location}{'record_C'}ï¿½/;
         s/%g/$wetData{$location}{'record_year'}/;
         s/%s/$wetData{$location}{'sunrise'}/;
         s/%S/$wetData{$location}{'sunset'}/;
+        s/%G/$wetData{$location}{'moonPhrase'}/;
+        s/%n/$wetData{$location}{'moonrise'}/;
+        s/%N/$wetData{$location}{'moonset'}/;
 
-        s/%z/$wetData{$location}{'forecastType'} $wetData{$location}{'forecastTempF'}°/;
-        s/%Z/$wetData{$location}{'forecastType'} $wetData{$location}{'forecastTempC'}°/;
+        s/%z/$wetData{$location}{'forecastType'} $wetData{$location}{'forecastTempF'}ï¿½/;
+        s/%Z/$wetData{$location}{'forecastType'} $wetData{$location}{'forecastTempC'}ï¿½/;
         s/%!z/$wetData{$location}{'forecastTempF'}/;
         s/%!Z/$wetData{$location}{'forecastTempC'}/;
         s/Low/ Low/;
@@ -2864,10 +2871,10 @@ sub replaceMacrosPer {
         s/%_3/$wetData{$location}{'day'}/;
         s/%!_3/$wetData{$location}{'shortday'}/;
         s/%_4/$wetData{$location}{'date'}/;
-        s/%_5/$wetData{$location}{'highF'}°/;
-        s/%_6/$wetData{$location}{'highC'}°/;
-        s/%_7/$wetData{$location}{'lowF'}°/;
-        s/%_8/$wetData{$location}{'lowC'}°/;
+        s/%_5/$wetData{$location}{'highF'}ï¿½/;
+        s/%_6/$wetData{$location}{'highC'}ï¿½/;
+        s/%_7/$wetData{$location}{'lowF'}ï¿½/;
+        s/%_8/$wetData{$location}{'lowC'}ï¿½/;
         s/%_9/$wetData{$location}{'precip'}/;
         s/%_0/$wetData{$location}{'condition'}/;
     }       
@@ -3187,6 +3194,58 @@ sub gotWeatherToday {  #Weather data for today was received
         $wetData{1}{'sunset'} = $ss;
         $wetData{2}{'sunset'} = $ss;
     }
+
+    # Moonrise moonset for Today.  Store in both current[-1] and today/tonight[0] periods. 
+    my $moonrise = @$moonrises[0];
+    my $timepos5 = index($moonrise, ":");
+    $timepos5 = $timepos5-2;
+    my $mr = substr($moonrise, $timepos5, 5);
+    $wetData{-1}{'moonrise'} = $mr;
+    $wetData{0}{'moonrise'} = $mr;
+
+    my $moonset = @$moonsets[0];
+    my $timepos6 = index($moonset, ":");
+    $timepos6 = $timepos6-2;
+    my $ms = substr($moonset, $timepos6, 5);
+    $wetData{-1}{'moonset'} = $ms;
+    $wetData{0}{'moonset'} = $ms;
+
+    my $moonphrase = @$moonPhrases[0];
+    $wetData{-1}{'moonPhrase'} = $moonphrase;
+    $wetData{0}{'moonPhrase'} = $moonphrase;
+
+    # Calculate Moon Age  https://www.subsystems.us/uploads/9/8/9/4/98948044/moonphase.pdf
+    # First calulate julian date
+    my $Y = localtime->year() + 1900;
+    my $M = localtime->mon() + 1;
+    my $D = localtime->mday();
+
+    if ( ($M == 1) | ($M == 2)){
+        $Y = $Y - 1;
+        $M = $M + 12;
+    }
+
+    my $A = int($Y/100);
+    my $B = int($A/4);
+    my $C = 2-$A+$B;
+    my $E = int(365.25 * ($Y+4716));
+    my $F = int(30.6001 * ($M+1));
+    my $JulianDate = $C+$D+$E+$F-1524.5;
+
+    # Now Calulate number of days/new moons since a known New Moon Jan 06,2000
+    my $DaysSinceNewMoon = $JulianDate - 2451549.5;
+    my $New_Moons = $DaysSinceNewMoon / 29.53;
+
+    #Calculate the number of days since last new moon.
+    my $frac = ($New_Moons - int($New_Moons));
+    my $MoonAge = sprintf "%d", int($frac * 29.53);
+
+    #Images are for northern hemisphere, map images for southern hemisphere.
+    if ($lat < 0 ){
+        $MoonAge = 30 - $MoonAge
+    }
+    $log->debug('Moon age: ' . $MoonAge);
+    $wetData{'moonphaseURL'} ='/plugins/SuperDateTime/html/images/moon_'. $MoonAge . '.png';
 
 #   10 day stuff moved from got10day
     my %mons=("01"=>"Jan","02"=>"Feb","03"=>"Mar","04"=>"Apr","05"=>"May","06"=>"Jun","07"=>"Jul","08"=>"Aug","09"=>"Sep","10"=>"Oct","11"=>"Nov","12"=>"Dec");
