@@ -3,9 +3,9 @@
 		<title lang="EN">SuperDateTime weather.com Version Repository</title>
 	</details>
 	<plugins>
-		<plugin name="SuperDateTime" creator="G Brown, D Grossman" link="https://github.com/paul-1/SuperDateTime" maxTarget="7.*" minTarget="7.4" sha="38e353d74c32b616389bb959c73ea0741d58b4c7" url="https://github.com/paul-1/SuperDateTime/releases/download/5.9.49/SuperDateTime5-9-49.zip" version="5.9.49">
+		<plugin name="SuperDateTime" creator="G Brown, D Grossman" link="https://github.com/paul-1/SuperDateTime" maxTarget="7.*" minTarget="7.4" sha="8f39fb821271b0b6cf49f2d99c22175e9c240f65" url="https://github.com/paul-1/SuperDateTime/releases/download/5.9.51/SuperDateTime5-9-51.zip" version="5.9.51">
 			<desc lang="EN">Displays local time, date, weather, sports, and stock information. This version uses weather.com data.
-			Cleaned up display of SDT in Extras menu on Touch/Radio/Controller.  (5.9.49)</desc>
+			Added extra moon phase data  (5.9.51)</desc>
 			<title lang="EN">SuperDateTime</title>
 		</plugin>
 	</plugins>
