@@ -18,6 +18,8 @@
 # The graphical weather icons and the code to support them are based on the WeatherTime screensaver written by Martin Rehfeld.
 #
 # VERSION HISTORY
+# 5.9.50 03/16/19   Adjusted 15 day forecast to start with the current day.
+#
 # 5.9.49 02/18/19   Fixed certain NCAA team ICONs that were not displaying correctly. 
 #					Added handling for Postponed College Basketball games.					
 #					Cleaned up "Extras" display on Touch/Radio/Controller.
@@ -211,7 +213,7 @@ my $log = Slim::Utils::Log->addLogCategory({
 });
 
 use vars qw($VERSION);
-$VERSION = substr(q$Revision: 5.9.49 $,10);
+$VERSION = substr(q$Revision: 5.9.50 $,10);
 
 $Plugins::SuperDateTime::Plugin::apiVersion = 2.0;
 
@@ -2232,7 +2234,7 @@ sub sdt10day {
         $ForC = 'F';
     }
     
-    while ($i < $dayCount) { 
+    while ($i <= $dayCount) { 
         push @menu, {
             'icon-id' => 'plugins/SuperDateTime/html/images/'.$wetData{'d'.$i}{'forecastIcon'}.'.png',
             text => $wetData{'d'.$i}{'day'}.' '.$wetData{'d'.$i}{'date'}.
@@ -3190,54 +3192,61 @@ sub gotWeatherToday {  #Weather data for today was received
     my %mons=("01"=>"Jan","02"=>"Feb","03"=>"Mar","04"=>"Apr","05"=>"May","06"=>"Jun","07"=>"Jul","08"=>"Aug","09"=>"Sep","10"=>"Oct","11"=>"Nov","12"=>"Dec");
     my $dayval = "" ;
     my $dv = "" ;
-    my $dayNum = 1;
+	my $dayNum = "";
+    my $loopctr = 0;
 
-    while ($dayNum < $dayCount) {  # 
-        $wetData{'d'.$dayNum}{'day'} = @$days[$dayNum];
-        $wetData{'d'.$dayNum}{'shortday'} = substr @$days[$dayNum], 0, 3;
+    while ($loopctr < $dayCount) {  # 
+		$dayNum = $loopctr + 1;
+        $wetData{'d'.$dayNum}{'day'} = @$days[$loopctr];
+        $wetData{'d'.$dayNum}{'shortday'} = substr @$days[$loopctr], 0, 3;
 
-        $dayval = @$dates[$dayNum];
+        $dayval = @$dates[$loopctr];
         
         if ($dayval=~/([0-9]{4})\-([0-9]{2})\-([0-9]{2}).*/) {
             $dv = "$mons{$2} $3\n";
         }
         $wetData{'d'.$dayNum}{'date'} = $dv;        
 
-        $wetData{'d'.$dayNum}{'forecastIcon'} = @$dayIcons[$dayNum];
-        $wetData{'d'.$dayNum}{'forecastIconURLSmall'} = '/plugins/SuperDateTime/html/images/' . @$dayIcons[$dayNum] . '.png';
-        $wetData{'d'.$dayNum}{'condition'} = @$dayCond[$dayNum];
+        $wetData{'d'.$dayNum}{'forecastIcon'} = @$dayIcons[$loopctr];
+        $wetData{'d'.$dayNum}{'forecastIconURLSmall'} = '/plugins/SuperDateTime/html/images/' . @$dayIcons[$loopctr] . '.png';
+        $wetData{'d'.$dayNum}{'condition'} = @$dayCond[$loopctr];
 
         if ($units eq 'e') {
-            $wetData{'d'.$dayNum}{'highF'} = @$highs[$dayNum];
-            $wetData{'d'.$dayNum}{'highC'} = FtoC(@$highs[$dayNum]);
-            $wetData{'d'.$dayNum}{'lowF'} = @$lows[$dayNum];
-            $wetData{'d'.$dayNum}{'lowC'} = FtoC(@$lows[$dayNum]);      
+            $wetData{'d'.$dayNum}{'highF'} = @$highs[$loopctr];
+            $wetData{'d'.$dayNum}{'highC'} = FtoC(@$highs[$loopctr]);
+            $wetData{'d'.$dayNum}{'lowF'} = @$lows[$loopctr];
+            $wetData{'d'.$dayNum}{'lowC'} = FtoC(@$lows[$loopctr]);      
         }
         else {
-            $wetData{'d'.$dayNum}{'highF'} = CtoF(@$highs[$dayNum]);
-            $wetData{'d'.$dayNum}{'highC'} = @$highs[$dayNum];
-            $wetData{'d'.$dayNum}{'lowF'} = CtoF(@$lows[$dayNum]);
-            $wetData{'d'.$dayNum}{'lowC'} = @$lows[$dayNum];        
+            $wetData{'d'.$dayNum}{'highF'} = CtoF(@$highs[$loopctr]);
+            $wetData{'d'.$dayNum}{'highC'} = @$highs[$loopctr];
+            $wetData{'d'.$dayNum}{'lowF'} = CtoF(@$lows[$loopctr]);
+            $wetData{'d'.$dayNum}{'lowC'} = @$lows[$loopctr];        
         }
-        $wetData{'d'.$dayNum}{'precip'} = @$dayPrecip[$dayNum];
 
-        my $sunrise = @$sunrises[$dayNum];
+        $wetData{'d'.$dayNum}{'precip'} = @$dayPrecip[$loopctr];
+
+        my $sunrise = @$sunrises[$loopctr];
         my $timepos = index($sunrise, ":");
         $timepos = $timepos-2;
         my $sr = substr($sunrise, $timepos, 5);
         $averages{$dayNum}{'sunrise'} = $sr;
 
-        my $sunset = @$sunsets[$dayNum];
+        my $sunset = @$sunsets[$loopctr];
         my $timepos2 = index($sunset, ":");
         $timepos2 = $timepos2-2;
         my $ss = substr($sunset, $timepos2, 5);
         $averages{$dayNum}{'sunset'} = $ss;
         
-        $log->debug("Icon # for day " . $dayNum . " = " . $wetData{'d'.$dayNum}{'forecastIcon'}. "\n");
-        $log->debug("Sunrise for day " . $dayNum . " = " . $averages{$dayNum}{'sunrise'}. "\n");
-        $log->debug("Sunset for day " . $dayNum . " = " . $averages{$dayNum}{'sunset'}. "\n");
-        $log->debug("Date Val for day" . $dayNum . " = " . $wetData{'d'.$dayNum}{'date'}. "\n");
-        $dayNum++;
+        $log->debug("Date Val for day " . $dayNum . " = " . $wetData{'d'.$dayNum}{'date'});
+        $log->debug("Icon # for day " . $dayNum . " = " . $wetData{'d'.$dayNum}{'forecastIcon'});
+        $log->debug("Condition for day " . $dayNum . " = " . $wetData{'d'.$dayNum}{'condition'});
+        $log->debug("High for day " . $dayNum . " = " . $wetData{'d'.$dayNum}{'highF'});
+        $log->debug("Low for day " . $dayNum . " = " . $wetData{'d'.$dayNum}{'forecastIcon'});
+        $log->debug("Sunrise for day " . $dayNum . " = " . $averages{$dayNum}{'sunrise'});
+        $log->debug("Sunset for day " . $dayNum . " = " . $averages{$dayNum}{'sunset'});
+        $log->debug(" ");
+        $loopctr++;
     }   
     refreshData(undef, $client, $refreshItem);
 }
@@ -4232,7 +4241,7 @@ sub gotMLB {
         }
         else {
             $status = '-';
-            $log->info("Error parsing MLB data.");
+            $log->warn("Error parsing MLB data.");
         }
     }
     else {
